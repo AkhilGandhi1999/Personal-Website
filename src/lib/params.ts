@@ -39,8 +39,7 @@ export const HOME: HomePageParams = {
 	title: 'Home',
 	name: 'Akhil',
 	lastName: 'Gandhi',
-	description:
-		'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti, rerum. Debitis accusantium deleniti enim iste dignissimos? Similique, exercitationem! Odit vero, numquam quae ratione maxime sunt reiciendis laudantium quaerat iure ipsum!',
+	description:"Welcome to my personal website! I'm Akhil Gandhi, a passionate software developer with a strong foundation in computer science and a knack for turning complex problems into elegant solutions.",
 	links: [
 		{	platform: Platform.GitHub, 
 			link: 'https://github.com/AkhilGandhi1999' 
