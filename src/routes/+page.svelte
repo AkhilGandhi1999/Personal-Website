@@ -7,6 +7,7 @@
 	import MY_SKILLS from '$lib/skills.params';
 	import { useTitle } from '$lib/utils';
 	import { isBlank } from '@riadh-adrani/utils';
+	import Assets from '../lib/data/assets';
 
 	const { description, lastName, links, name, title, skills } = HOME;
 
@@ -22,7 +23,7 @@
 	<title>{useTitle(title, TITLE_SUFFIX)}</title>
 </svelte:head>
 <div class="home">
-	<div class="m-10">Wo</div>
+	<img src={Assets.Profile} class="h-[380px] w-[300px] mr-20 rounded-full" alt="">
 	<div class="home-section">
 		<MainTitle classes="!text-left">{name} {lastName},</MainTitle>
 		<p class="home-subtitle">{description}</p>
