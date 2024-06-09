@@ -105,4 +105,7 @@
 			flex-wrap: wrap;
 		}
 	}
+	.experience-description{
+		white-space: pre-wrap; 
+	}
 </style>
