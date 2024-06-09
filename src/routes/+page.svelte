@@ -22,6 +22,7 @@
 	<title>{useTitle(title, TITLE_SUFFIX)}</title>
 </svelte:head>
 <div class="home">
+	<div class="m-10">Wo</div>
 	<div class="home-section">
 		<MainTitle classes="!text-left">{name} {lastName},</MainTitle>
 		<p class="home-subtitle">{description}</p>
