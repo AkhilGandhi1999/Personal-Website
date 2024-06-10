@@ -37,7 +37,7 @@ const MY_EXPERIENCES: Array<Experience> = [
 		name: 'Software Developer',
 		color: '#ffffff',
 		links: [],
-		logo: Assets.Charter
+		logo: Assets.Rule4
 	}, 
 	{
 		slug: 'netops-intern',
