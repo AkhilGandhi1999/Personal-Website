@@ -44,7 +44,5 @@
 		"vite": "^4.0.0"
 	},
 	"type": "module",
-	"dependencies": {
-		"svelte-pdf": "^1.0.20"
-	}
+	"dependencies": {}
 }
