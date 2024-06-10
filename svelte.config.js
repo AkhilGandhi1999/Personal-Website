@@ -16,14 +16,6 @@ const config = {
 		},
 		prerender: {
 			handleHttpError: ({ path, referrer, response }) => {
-			//   if (response.status === 500) {
-			// 	// this will still be available in the page store
-			// 	response.body = {
-			// 	  ...response.body,
-			// 	  title: 'Error',
-			// 	  message: 'An unexpected error occurred'
-			// 	};
-			//   }
 			console.log(response)
 			}
 		  }
