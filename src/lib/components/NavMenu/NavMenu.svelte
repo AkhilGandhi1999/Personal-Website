@@ -12,8 +12,6 @@
 	$: {
 		if ($page) {
 			currentRoute = $page.url.pathname;
-
-			console.log(currentRoute);
 		}
 	}
 
