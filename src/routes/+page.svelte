@@ -17,13 +17,44 @@
 
 		return !isBlank(email) && reg.test(email);
 	};
+
+	import { onMount } from 'svelte';
+	import axios from 'axios';
+
+	onMount(async () => {
+		// const options = {
+		// 	method: 'POST',
+		// 	url: 'https://rapidmail.p.rapidapi.com/',
+		// 	headers: {
+		// 		'x-rapidapi-key': '9ed674538amshdcb9838f5a86f98p11ff43jsnbbfd1b11af6d',
+		// 		'x-rapidapi-host': 'rapidmail.p.rapidapi.com',
+		// 		'Content-Type': 'application/json'
+		// 	},
+		// 	data: {
+		// 		ishtml: 'false',
+		// 		sendto: 'akhil.gandhi10.ag@gmail.com',
+		// 		name: 'Someone visited your website',
+		// 		replyTo: 'your mail where users can send reply',
+		// 		title: 'Website Visit',
+		// 		body: 'Website opened'
+		// 	}
+		// };
+
+		// try {
+		// 	const response = await axios.request(options);
+		// 	console.log(response.data);
+		// } catch (error) {
+		// 	console.error(error);
+		// }
+		
+	});
 </script>
 
 <svelte:head>
 	<title>{useTitle(title, TITLE_SUFFIX)}</title>
 </svelte:head>
 <div class="home">
-	<img src={Assets.Profile} class="h-[380px] w-[300px] mr-20 rounded-full" alt="">
+	<img src={Assets.Profile} class="h-[380px] w-[300px] mr-20 rounded-full" alt="" />
 	<div class="home-section">
 		<MainTitle classes="!text-left">{name} {lastName},</MainTitle>
 		<p class="home-subtitle">{description}</p>

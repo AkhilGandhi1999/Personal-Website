@@ -4,63 +4,62 @@ import type { Project } from './types';
 
 const MY_PROJECTS: Array<Project> = [
 	{
-		slug: 'budget-based-activity-recommendation',
-		color: '#5e95e3',
-		description:
-			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore non dolores voluptatibus vitae praesentium aperiam, iure laboriosam repellendus sunt explicabo pariatur totam enim, nihil animi quisquam. Sit vero quod laborum!',
-		links: [{ to: 'https://github.com/RiadhAdrani/slick-portfolio-svelte', label: 'GitHub' }],
-		logo: Assets.VueJs,
-		name: 'Budget Based Activity Recommendation and Planner',
-		period: {
-			from: new Date(2023, 4)
-		},
-		skills: getSkills('vuejs', 'js', 'sass', 'html', 'css', 'docker', 'aws'),
-		type: 'Website'
-	},
-	{
 		slug: 'amazon-price-tracker',
 		color: '#008000',
-		description: "A web UI to track prices of Amazon products and get nofiticaions",
-		// description:
-		// 	"A web UI to track prices of Amazon products and get nofiticaions \
-		// 	//  Implemented scheduler with cron expressions, automating email notifications for added products in Vue.js SPA with Flask backend on EC2 instances. \
-		// 	// Orchestrated CI/CD pipelines with GitHub Actions, automating build, testing, and deployment. Integrated messaging and \
-		// 	// SMTP protocols for email notifications and flexible notification configurations. \
-		// 	// Monitored Flask endpoints with Grafana and Prometheus, leveraging AWS services like S3 and EC2 for efficient \
-		// 	// deployment and hosting of SPA and backend components.",
-		links: [{ to: 'https://github.com/RiadhAdrani/slick-portfolio-svelte', label: 'GitHub' }],
+		description:"This website is a price tracker, built to monitor prices in real-time and send automated email notifications for any changes. It's developed using Vue.js, with Grafana and Prometheus for monitoring.\n\
+					The site uses Firebase for authentication and AWS S3 for storing assets.\n\
+					Explore to see how it can help you stay updated with the latest price trends effortlessly!",
+		links: [{ to: 'https://github.com/AkhilGandhi1999/Amazon-Price-Tracker', label: 'GitHub' }],
 		logo: Assets.VueJs,
 		name: 'Amazon Price Tracker',
 		period: {
-			from: new Date(2023, 3)
+			from: new Date(2023, 0),
+			to: new Date(2023, 4)
 		},
-		skills: getSkills('vuejs', 'js', 'sass', 'html', 'css', 'docker', 'aws'),
+		skills: getSkills('vuejs', 'sass', 'docker', 'aws', 'quasar', 'flask', 'gunicorn'),
+		type: 'Website'
+	},
+	{
+		slug: 'budget-based-activity-recommendation',
+		color: '#008000',
+		description:"This platform is designed to help you plan the perfect trip within your budget.\n\
+					Its built as a single-page application using Vue.js and integrates with AWS S3, Weather API, and Google Maps API.\n\
+					The system offers personalized activity suggestions, itinerary planning, and real-time trip metrics. \n\
+					Our backend uses Flask based RESTful APIs on Linux EC2 with Redis caching, ensuring efficient performance.",
+		links: [{ to: 'https://github.com/AkhilGandhi1999/Budget-Based-Activity-Recommendation-And-Planner-Frontend', label: 'GitHub' }],
+		logo: Assets.VueJs,
+		name: 'Budget Based Activity Recommendation and Planner',
+		period: {
+			from: new Date(2023, 0),
+			to: new Date(2023, 3)
+		},
+		skills: getSkills('vuejs', 'sass', 'docker', 'aws', 'quasar', 'flask'),
 		type: 'Website'
 	},
 	{
 		slug: 'web-stable-diffusion',
 		color: '#5e95e3',
-		description:
-			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore non dolores voluptatibus vitae praesentium aperiam, iure laboriosam repellendus sunt explicabo pariatur totam enim, nihil animi quisquam. Sit vero quod laborum!',
-		links: [{ to: 'https://github.com/RiadhAdrani/slick-portfolio-svelte', label: 'GitHub' }],
+		description:"",
+		links: [{ to: 'https://github.com/AkhilGandhi1999/Web-App-Stable-Diffusion-Frontend', label: 'GitHub' }],
 		logo: Assets.Docker,
 		name: 'Web UI Stable Diffusion',
 		period: {
-			from: new Date()
+			from: new Date(2022, 7),
+			to: new Date(2022, 11)
 		},
 		skills: getSkills('vuejs', 'docker', 'kubernetes', 'aws', 'gcp'),
 		type: 'Website'
 	},
 	{
 		slug: 'medicine-reminder',
-		color: '#5e95e3',
-		description:
-			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore non dolores voluptatibus vitae praesentium aperiam, iure laboriosam repellendus sunt explicabo pariatur totam enim, nihil animi quisquam. Sit vero quod laborum!',
-		links: [{ to: 'https://github.com/RiadhAdrani/slick-portfolio-svelte', label: 'GitHub' }],
+		color: '#008000',
+		description:"",
+		links: [{ to: 'https://github.com/AkhilGandhi1999/Medicine-Reminder-App', label: 'GitHub' }],
 		logo: Assets.Android,
 		name: 'Medicine Reminder',
 		period: {
-			from: new Date()
+			from: new Date(2020, 0),
+			to: new Date(2020, 6)
 		},
 		skills: getSkills('android', 'java', 'aws'),
 		type: 'Android App'
