@@ -4,6 +4,19 @@ import type { Project } from './types';
 
 const MY_PROJECTS: Array<Project> = [
 	{
+		slug: 'personal-website',
+		color: '#008000',
+		description:"Vercel theme inspired personal portfolio website which is hosted on github and rendered through github pages.",
+		links: [{ to: 'https://github.com/AkhilGandhi1999/Personal-Website', label: 'GitHub' }],
+		logo: Assets.Svelte,
+		name: 'Portfolio',
+		period: {
+			from: new Date(2023, 0)
+		},
+		skills: getSkills('svelte', 'react', 'docker', 'aws', 'git', 'js', 'github'),
+		type: 'Website'
+	},
+	{
 		slug: 'amazon-price-tracker',
 		color: '#008000',
 		description:"This website is a price tracker, built to monitor prices in real-time and send automated email notifications for any changes. It's developed using Vue.js, with Grafana and Prometheus for monitoring.\n\
@@ -28,7 +41,7 @@ const MY_PROJECTS: Array<Project> = [
 					Our backend uses Flask based RESTful APIs on Linux EC2 with Redis caching, ensuring efficient performance.",
 		links: [{ to: 'https://github.com/AkhilGandhi1999/Budget-Based-Activity-Recommendation-And-Planner-Frontend', label: 'GitHub' }],
 		logo: Assets.VueJs,
-		name: 'Budget Based Activity Recommendation and Planner',
+		name: 'Budget Based Activity Recommendation',
 		period: {
 			from: new Date(2023, 0),
 			to: new Date(2023, 3)
