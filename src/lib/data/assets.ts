@@ -8,6 +8,7 @@ const a = (light: string, dark?: string): Asset =>
 	dark ? { dark: gh(dark), light: gh(light) } : gh(light);
 
 const Assets = {
+	Profile1: a('profile1.jpeg'),
 	Resume: a('resume.pdf'),
 	Rule4: a('rule4.jpeg'),
 	Profile: a('profile.jpeg'),
@@ -16,9 +17,9 @@ const Assets = {
 	C: a('c.svg'),
 	Cpp: a('cpp.svg'),
 	Celery: a('celery.svg'),
-	Django: a('djanog.svg'),
+	Django: a('django.svg'),
 	FastApi: a('fastapi'),
-	Flask: a('flask-logo.png'),
+	Flask: a('flask.jpeg'),
 	Go: a('go.svg'),
 	Kafka: a('kafka.svg'),
 	Neo4j: a('neo4j.svg'),
@@ -74,11 +75,11 @@ const Assets = {
 	Charter: a('charter.png'),
 	Nice: a('nice.png'),
 	Datadog: a('datadog.png'),
-	GCP: a('gcps.png'),
+	GCP: a('gcp.jpeg'),
 	SpringBoot: a('spring-boot.png'),
 	MySQL: a('mysql.png'),
 	Gunicorn: a('gunicorn.png'),
-	Jenkins: a('Jenkins.png'),
+	Jenkins: a('jenkins.png'),
 	Junit: a('junit.png'),
 	PyTest: a('pytest.svg'),
 	Linux: a('linux.png'),
@@ -86,7 +87,7 @@ const Assets = {
 	BNT: a('bnt.png'),
 	Ansible: a('ansible.png'),
 	Git: a('git.png'),
-	GitHub: a('github.png'),
+	GitHub: a('github.jpeg'),
 	GitLab: a('gitlab.svg')
 };
 

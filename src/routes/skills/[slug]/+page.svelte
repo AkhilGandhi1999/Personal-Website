@@ -72,7 +72,7 @@
 			</div>
 			<div class="px-4 py-3 overflow-x-hidden w-full">
 				{#if isBlank(data.skill.description)}
-					<p class="text-[var(--tertiary-text)]">This place is yet to be filled...</p>
+					<p class="text-[var(--tertiary-text)]">Below are the projects and experiences for the skills!!!</p>
 				{:else}
 					<Markdown content={data.skill.description} />
 				{/if}

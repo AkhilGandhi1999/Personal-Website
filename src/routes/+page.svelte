@@ -39,14 +39,12 @@
 		// 		body: 'Website opened'
 		// 	}
 		// };
-
 		// try {
 		// 	const response = await axios.request(options);
 		// 	console.log(response.data);
 		// } catch (error) {
 		// 	console.error(error);
 		// }
-		
 	});
 </script>
 
@@ -54,7 +52,7 @@
 	<title>{useTitle(title, TITLE_SUFFIX)}</title>
 </svelte:head>
 <div class="home">
-	<img src={Assets.Profile} class="h-[380px] w-[300px] mr-20 rounded-full" alt="" />
+	<img src={Assets.Profile1} class="h-[370px] w-[300px] ml-10 mr-10 rounded-full shadow-2xl shadow-slate-400" alt="" />
 	<div class="home-section">
 		<MainTitle classes="!text-left">{name} {lastName},</MainTitle>
 		<p class="home-subtitle">{description}</p>
@@ -118,5 +116,46 @@
 				text-align: center;
 			}
 		}
+	}
+	.jelly-border {
+		display: inline-block;
+		border-radius: 50%;
+		padding: 5px;
+		animation: jelly 2s ease-in-out infinite, jelly-rotate 2s infinite linear;
+		border: 1px solid transparent;
+		background: grey;
+		background-size: 300% 300%;
+	}
+
+	@keyframes jelly {
+		0%,
+		100% {
+			border-radius: 50%;
+		}
+		20% {
+			border-radius: 20%;
+		}
+		50% {
+			border-radius: 30%;
+		}
+		70% {
+			border-radius: 40%;
+		}
+	}
+
+	@keyframes jelly-rotate {
+		0% {
+			background-position: 0% 20% 50%;
+		}
+		100% {
+			background-position: 100% 50%;
+		}
+	}
+
+	.jelly-border img {
+		display: block;
+		border-radius: 50%;
+		width: 150px;
+		height: 150px;
 	}
 </style>
