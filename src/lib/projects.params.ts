@@ -16,7 +16,7 @@ const MY_PROJECTS: Array<Project> = [
 			from: new Date(2023, 0),
 			to: new Date(2023, 4)
 		},
-		skills: getSkills('vuejs', 'sass', 'docker', 'aws', 'quasar', 'flask', 'gunicorn'),
+		skills: getSkills('vuejs', 'nginx', 'docker', 'aws', 'git', 'flask', 'gunicorn'),
 		type: 'Website'
 	},
 	{
@@ -39,7 +39,11 @@ const MY_PROJECTS: Array<Project> = [
 	{
 		slug: 'web-stable-diffusion',
 		color: '#5e95e3',
-		description:"",
+		description:"Developed a scalable web UI using Vue.js and Flask, containerized with Docker,\n\
+					for seamless integration across frontend, backend, and S3 Buckets. \n\
+					Programmed RESTful APIs and incorporated Vuex for efficient state management.\n\
+					Implemented Kubernetes on GCP with an ingress controller to enhance scalability and load balancing,\n\
+					ensuring robust performance and reliability.",
 		links: [{ to: 'https://github.com/AkhilGandhi1999/Web-App-Stable-Diffusion-Frontend', label: 'GitHub' }],
 		logo: Assets.Docker,
 		name: 'Web UI Stable Diffusion',
@@ -53,7 +57,10 @@ const MY_PROJECTS: Array<Project> = [
 	{
 		slug: 'medicine-reminder',
 		color: '#008000',
-		description:"",
+		description:"Developed an Android app for medicine tracking, featuring a graph library for\n\
+					comprehensive monitoring of medication schedules. Prototyped the user interface with Adobe XD and\n\
+					incorporated Google Maps to display nearby pharmacies and hospitals within a 1-mile radius,\n\
+					ensuring users have easy access to essential medical facilities.",
 		links: [{ to: 'https://github.com/AkhilGandhi1999/Medicine-Reminder-App', label: 'GitHub' }],
 		logo: Assets.Android,
 		name: 'Medicine Reminder',
