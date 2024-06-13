@@ -100,6 +100,13 @@ const MY_SKILLS = [
 		name: 'CSS'
 	}),
 	s({
+		slug: 'nuxt',
+		color: 'blue',
+		description:"",
+		logo: Assets.Nuxt,
+		name: 'Nuxt'
+	}),
+	s({
 		slug: 'sass',
 		color: 'pink',
 		description:"",
