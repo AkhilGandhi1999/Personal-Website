@@ -19,7 +19,7 @@ const Assets = {
 	Celery: a('celery.svg'),
 	Django: a('django.svg'),
 	FastApi: a('fastapi'),
-	Flask: a('flask.jpeg'),
+	Flask: a('flask.jpg'),
 	Go: a('go.svg'),
 	Kafka: a('kafka.jpeg'),
 	Neo4j: a('neo4j.svg'),

@@ -22,29 +22,29 @@
 	import axios from 'axios';
 
 	onMount(async () => {
-		// const options = {
-		// 	method: 'POST',
-		// 	url: 'https://rapidmail.p.rapidapi.com/',
-		// 	headers: {
-		// 		'x-rapidapi-key': 'REMOVED-REVOKED-KEY',
-		// 		'x-rapidapi-host': 'rapidmail.p.rapidapi.com',
-		// 		'Content-Type': 'application/json'
-		// 	},
-		// 	data: {
-		// 		ishtml: 'false',
-		// 		sendto: 'akhil.gandhi10.ag@gmail.com',
-		// 		name: 'Someone visited your website',
-		// 		replyTo: 'your mail where users can send reply',
-		// 		title: 'Website Visit',
-		// 		body: 'Website opened'
-		// 	}
-		// };
-		// try {
-		// 	const response = await axios.request(options);
-		// 	console.log(response.data);
-		// } catch (error) {
-		// 	console.error(error);
-		// }
+		const options = {
+			method: 'POST',
+			url: 'https://rapidmail.p.rapidapi.com/',
+			headers: {
+				'x-rapidapi-key': 'REMOVED-REVOKED-KEY',
+				'x-rapidapi-host': 'rapidmail.p.rapidapi.com',
+				'Content-Type': 'application/json'
+			},
+			data: {
+				ishtml: 'false',
+				sendto: 'akhil.gandhi10.ag@gmail.com',
+				name: 'Someone visited your website',
+				replyTo: 'your mail where users can send reply',
+				title: 'Website Visit',
+				body: 'Website opened'
+			}
+		};
+		try {
+			const response = await axios.request(options);
+			console.log(response.data);
+		} catch (error) {
+			console.error(error);
+		}
 	});
 </script>
 
