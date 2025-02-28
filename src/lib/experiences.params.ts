@@ -2,9 +2,15 @@ import Assets from './data/assets';
 import { getSkills } from './skills.params';
 import { ContractType, type Experience } from './types';
 
+const sre_charter_data = "• Execute biweekly production deployments using blue-green methodology across 10+ production applications, ensuring zero-downtime deployments and maintaining system reliability. \n\
+• Manage and maintain public cloud clusters in AWS environment, leveraging EKS and Kubernetes for container orchestration and application deployment.\n\
+• Participate in on-call rotation providing 24/7 incident response and troubleshooting support for production environments.\n\
+• Spearheaded cross-functional initiative to develop comprehensive AWS resource tagging strategy, collaborating with FinOps and Security teams to optimize cost tracking and compliance monitoring.\n\
+• Monitor and maintain system performance using DataDog, ensuring optimal operation of cloud infrastructure and applications."
+
 const rule4_data = "• Integrated Vue.js into the existing Django application, enabling client-side rendering and significantly enhancing the application responsiveness and user experience. \n\
 • Developed a backend service in Go to aggregate chat data from Slack and meeting details from Google Calendar. Implemented Kafka for efficient message streaming, reducing server load by 30% and ensuring real-time data processing.\n\
-• Improved efficiency of time entry for the consultancy by suggesting timesheet entries based on aggregated data from Slack and Google Calendar, leading to more accurate billing and streamlined employee workflows"
+• Improved efficiency of time entry for the consultancy by suggesting timesheet entries based on aggregated data from Slack and Google Calendar, leading to more accurate billing and streamlined employee workflows."
 
 const nice_data = "• Migrated Actimize platform code-base from Angular to Vue, resulting in Single Page Application with 30% reduction in loading time.\n\
 • Fixed production defects, conducted thorough code reviews, and achieved 90% code coverage with Jest, resulting in efficient refactoring and fewer bugs in production.\n\
@@ -25,6 +31,20 @@ const bnt_data = "• Analyzed and compared A/B Testing,Multi-arm-bandit algorit
 
 
 const MY_EXPERIENCES: Array<Experience> = [
+	{
+		slug: 'sre-fulltime',
+		company: 'Charter Communications',
+		description: sre_charter_data,
+		contract: ContractType.FullTime,
+		type: 'SRE',
+		location: 'Greenwood Village, CO, USA',
+		period: { from: new Date(2024, 6), to: new Date() },
+		skills: getSkills('python', 'datadog', 'aws', 'docker', 'kubernetes', 'ansible', 'gitlab', 'github', 'git', 'jenkins'),
+		name: 'Site Reliability Engineer I',
+		color: '#ffffff',
+		links: [],
+		logo: Assets.Charter
+	}, 
 	{
 		slug: 'software-intern',
 		company: 'Rule 4',
@@ -48,7 +68,7 @@ const MY_EXPERIENCES: Array<Experience> = [
 		location: 'Greenwood Village, CO, USA',
 		period: { from: new Date(2023, 5), to: new Date(2023, 7) },
 		skills: getSkills('python', 'datadog', 'aws', 'docker', 'kubernetes', 'ansible', 'gitlab', 'github', 'git', 'jenkins'),
-		name: 'NetOps Engineer',
+		name: 'Systems Engineer',
 		color: '#ffffff',
 		links: [],
 		logo: Assets.Charter

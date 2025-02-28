@@ -41,9 +41,9 @@
 		};
 		try {
 			const response = await axios.request(options);
-			console.log(response.data);
+			console.log('Email sent');
 		} catch (error) {
-			console.error(error);
+			console.error("Error");
 		}
 	});
 </script>

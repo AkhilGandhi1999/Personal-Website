@@ -9,7 +9,7 @@ const a = (light: string, dark?: string): Asset =>
 
 const Assets = {
 	Profile1: a('profile1.jpeg'),
-	Resume: a('resume.pdf'),
+	Resume: a('resume_2025.pdf'),
 	Rule4: a('rule4.jpeg'),
 	Profile: a('profile.jpeg'),
 	AWS: a('aws.png'),

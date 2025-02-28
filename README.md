@@ -1,3 +1,5 @@
-My Personal Website
+My Personal Website Repo
 
-A Svelte App
+Website: https://akhilgandhi1999.github.io/Personal-Website
+
+LinkedIn: https://www.linkedin.com/in/ak-gandhi/ 
