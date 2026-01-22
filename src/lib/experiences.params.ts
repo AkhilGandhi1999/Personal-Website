@@ -32,29 +32,29 @@ const bnt_data = "• Analyzed and compared A/B Testing,Multi-arm-bandit algorit
 
 const MY_EXPERIENCES: Array<Experience> = [
 	{
-		slug: 'sre-fulltime',
+		slug: 'systems-fulltime',
 		company: 'Charter Communications',
-		description: sre_charter_data,
+		description: systems_engineer_charter_data,
 		contract: ContractType.FullTime,
-		type: 'SRE',
+		type: 'Systems Engineer I',
 		location: 'Greenwood Village, CO, USA',
 		period: { from: new Date(2024, 6), to: new Date() },
 		skills: getSkills('python', 'datadog', 'aws', 'docker', 'kubernetes', 'ansible', 'gitlab', 'github', 'git', 'jenkins'),
-		name: 'Site Reliability Engineer I',
+		name: 'Systems Engineer I',
 		color: '#ffffff',
 		links: [],
 		logo: Assets.Charter
 	},
 	{
-		slug: 'netops-intern',
+		slug: 'associates-systems-engineer-intern',
 		company: 'Charter Communications',
 		description: charter_data,
 		contract: ContractType.Internship,
-		type: 'Software Development',
+		type: 'Dev Ops',
 		location: 'Greenwood Village, CO, USA',
 		period: { from: new Date(2023, 5), to: new Date(2023, 7) },
 		skills: getSkills('python', 'datadog', 'aws', 'docker', 'kubernetes', 'ansible', 'gitlab', 'github', 'git', 'jenkins'),
-		name: 'Systems Engineer',
+		name: 'Associate Systems Engineer Intern',
 		color: '#ffffff',
 		links: [],
 		logo: Assets.Charter
@@ -73,34 +73,34 @@ const MY_EXPERIENCES: Array<Experience> = [
 		links: [],
 		logo: Assets.Nice
 	},
-	{
-		slug: 'software-engineer',
-		company: 'AlgoAnalytics',
-		description: algo_data,
-		contract: ContractType.Internship,
-		type: 'Software Engineer',
-		location: 'Pune, MH, India',
-		period: { from: new Date(2020, 7), to: new Date(2021, 2) },
-		skills: getSkills('python', 'flask', 'aws', 'android', 'docker', 'nginx', 'gunicorn', 'linux', 'github'),
-		name: 'Software Engineer',
-		color: '#ffffff',
-		links: [],
-		logo: Assets.Algo
-	},
-	{
-		slug: 'python-developer',
-		company: 'BNT Soft',
-		description: bnt_data,
-		contract: ContractType.Internship,
-		type: 'Software Development',
-		location: 'Pune, MH, India',
-		period: { from: new Date(2020, 4), to: new Date(2020, 6) },
-		skills: getSkills('python', 'flask', 'postgres', 'nginx', 'github'),
-		name: 'Python Developer',
-		color: '#ffffff',
-		links: [],
-		logo: Assets.BNT
-	}
+	// {
+	// 	slug: 'software-engineer',
+	// 	company: 'AlgoAnalytics',
+	// 	description: algo_data,
+	// 	contract: ContractType.Internship,
+	// 	type: 'Software Engineer',
+	// 	location: 'Pune, MH, India',
+	// 	period: { from: new Date(2020, 7), to: new Date(2021, 2) },
+	// 	skills: getSkills('python', 'flask', 'aws', 'android', 'docker', 'nginx', 'gunicorn', 'linux', 'github'),
+	// 	name: 'Software Engineer',
+	// 	color: '#ffffff',
+	// 	links: [],
+	// 	logo: Assets.Algo
+	// },
+	// {
+	// 	slug: 'python-developer',
+	// 	company: 'BNT Soft',
+	// 	description: bnt_data,
+	// 	contract: ContractType.Internship,
+	// 	type: 'Software Development',
+	// 	location: 'Pune, MH, India',
+	// 	period: { from: new Date(2020, 4), to: new Date(2020, 6) },
+	// 	skills: getSkills('python', 'flask', 'postgres', 'nginx', 'github'),
+	// 	name: 'Python Developer',
+	// 	color: '#ffffff',
+	// 	links: [],
+	// 	logo: Assets.BNT
+	// }
 ];
 
 export default MY_EXPERIENCES;
