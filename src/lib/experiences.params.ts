@@ -34,7 +34,7 @@ const MY_EXPERIENCES: Array<Experience> = [
 	{
 		slug: 'systems-fulltime',
 		company: 'Charter Communications',
-		description: systems_engineer_charter_data,
+		description: sre_charter_data,
 		contract: ContractType.FullTime,
 		type: 'Systems Engineer I',
 		location: 'Greenwood Village, CO, USA',
