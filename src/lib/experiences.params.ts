@@ -44,21 +44,7 @@ const MY_EXPERIENCES: Array<Experience> = [
 		color: '#ffffff',
 		links: [],
 		logo: Assets.Charter
-	}, 
-	{
-		slug: 'software-intern',
-		company: 'Rule 4',
-		description: rule4_data,
-		contract: ContractType.Internship,
-		type: 'Software Development',
-		location: 'Boulder, CO, USA',
-		period: { from: new Date(2023, 7), to: new Date(2024, 4) },
-		skills: getSkills('python', 'django', 'go', 'docker', 'git', 'vuejs', 'quasar', 'ag-grid', 'pinia', 'vite', 'gcp', 'vite', 'kafka','nodejs','github'),
-		name: 'Software Developer',
-		color: '#ffffff',
-		links: [],
-		logo: Assets.Rule4
-	}, 
+	},
 	{
 		slug: 'netops-intern',
 		company: 'Charter Communications',
