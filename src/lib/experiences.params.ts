@@ -33,7 +33,7 @@ const bnt_data = "• Analyzed and compared A/B Testing,Multi-arm-bandit algorit
 const MY_EXPERIENCES: Array<Experience> = [
 	{
 		slug: 'systems-fulltime',
-		company: 'Charter Communications',
+		company: 'Charter Communications (Current-Active-Position)',
 		description: sre_charter_data,
 		contract: ContractType.FullTime,
 		type: 'Systems Engineer I',
@@ -73,34 +73,34 @@ const MY_EXPERIENCES: Array<Experience> = [
 		links: [],
 		logo: Assets.Nice
 	},
-	// {
-	// 	slug: 'software-engineer',
-	// 	company: 'AlgoAnalytics',
-	// 	description: algo_data,
-	// 	contract: ContractType.Internship,
-	// 	type: 'Software Engineer',
-	// 	location: 'Pune, MH, India',
-	// 	period: { from: new Date(2020, 7), to: new Date(2021, 2) },
-	// 	skills: getSkills('python', 'flask', 'aws', 'android', 'docker', 'nginx', 'gunicorn', 'linux', 'github'),
-	// 	name: 'Software Engineer',
-	// 	color: '#ffffff',
-	// 	links: [],
-	// 	logo: Assets.Algo
-	// },
-	// {
-	// 	slug: 'python-developer',
-	// 	company: 'BNT Soft',
-	// 	description: bnt_data,
-	// 	contract: ContractType.Internship,
-	// 	type: 'Software Development',
-	// 	location: 'Pune, MH, India',
-	// 	period: { from: new Date(2020, 4), to: new Date(2020, 6) },
-	// 	skills: getSkills('python', 'flask', 'postgres', 'nginx', 'github'),
-	// 	name: 'Python Developer',
-	// 	color: '#ffffff',
-	// 	links: [],
-	// 	logo: Assets.BNT
-	// }
+	{
+		slug: 'software-engineer',
+		company: 'AlgoAnalytics',
+		description: algo_data,
+		contract: ContractType.Internship,
+		type: 'Software Engineer',
+		location: 'Pune, MH, India',
+		period: { from: new Date(2020, 7), to: new Date(2021, 2) },
+		skills: getSkills('python', 'flask', 'aws', 'android', 'docker', 'nginx', 'gunicorn', 'linux', 'github'),
+		name: 'Software Engineer',
+		color: '#ffffff',
+		links: [],
+		logo: Assets.Algo
+	},
+	{
+		slug: 'python-developer',
+		company: 'BNT Soft',
+		description: bnt_data,
+		contract: ContractType.Internship,
+		type: 'Software Development',
+		location: 'Pune, MH, India',
+		period: { from: new Date(2020, 4), to: new Date(2020, 6) },
+		skills: getSkills('python', 'flask', 'postgres', 'nginx', 'github'),
+		name: 'Python Developer',
+		color: '#ffffff',
+		links: [],
+		logo: Assets.BNT
+	}
 ];
 
 export default MY_EXPERIENCES;
