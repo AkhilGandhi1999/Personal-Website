@@ -1,86 +1,31 @@
 <script lang="ts">
-	import Chip from '$lib/components/Chip/Chip.svelte';
+	import CommonPage from '$lib/components/CommonPage.svelte';
 	import ProjectCard from '$lib/components/ProjectCard/ProjectCard.svelte';
-	import SearchPage from '$lib/components/SearchPage.svelte';
+	import ToolFilter from '$lib/components/ToolFilter/ToolFilter.svelte';
+	import { projectFilterTools, projectTools } from '$lib/expertise';
 	import { PROJECTS } from '$lib/params';
-	import type { Project, Skill } from '$lib/types';
-	import { onMount } from 'svelte';
-	import MY_SKILLS from '$lib/skills.params';
-
-	interface SkillFilter extends Skill {
-		isSelected?: boolean;
-	}
 
 	const { items, title } = PROJECTS;
+	const tools = projectFilterTools(items);
 
-	let filters: Array<SkillFilter> = MY_SKILLS.filter((it) => {
-		return items.some((project) => project.skills.some((skill) => skill.slug === it.slug));
-	});
+	let selected: string | undefined;
 
-	let search = '';
-	let displayed: Array<Project> = [];
-
-	const isSelected = (slug: string): boolean => {
-		return filters.some((item) => item.slug === slug && item.isSelected);
-	};
-
-	const onSelected = (slug: string) => {
-		filters = filters.map((tech) => {
-			if (tech.slug === slug) {
-				tech.isSelected = !isSelected(slug);
-			}
-
-			return tech;
-		});
-	};
-
-	$: {
-		displayed = items.filter((project) => {
-			const isFiltered =
-				filters.every((item) => !item.isSelected) ||
-				project.skills.some((tech) =>
-					filters.some((filter) => filter.isSelected && filter.slug === tech.slug)
-				);
-
-			const isSearched =
-				search.trim().length === 0 ||
-				project.name.trim().toLowerCase().includes(search.trim().toLowerCase());
-
-			return isFiltered && isSearched;
-		});
-	}
-
-	const onSearch = (e: CustomEvent<{ search: string }>) => {
-		search = e.detail.search;
-	};
-
-	onMount(() => {
-		const query = location.search;
-
-		if (query) {
-			const queryParams = new URLSearchParams(location.search);
-
-			const item = queryParams.get('item');
-
-			if (item) {
-				search = item;
-			}
-		}
-	});
+	const uses = (p: (typeof items)[number]) =>
+		!selected || projectTools(p).some((s) => s.slug === selected);
+	$: matching = items.filter((p) => selected && uses(p)).length;
 </script>
 
-<SearchPage {title} on:search={onSearch}>
-	<div class="projects-filters">
-		{#each filters as tech}
-			<Chip label={tech.name} active={tech.isSelected} on:click={() => onSelected(tech.slug)} />
-		{/each}
-	</div>
+<CommonPage {title}>
+	<ToolFilter {tools} bind:selected {matching} noun="project" />
+
 	<div class="projects-list mt-5">
-		{#each displayed as project}
-			<ProjectCard {project} />
+		{#each items as project (project.slug)}
+			<div class="project-wrap" class:faded={selected && !uses(project)}>
+				<ProjectCard {project} highlight={selected} />
+			</div>
 		{/each}
 	</div>
-</SearchPage>
+</CommonPage>
 
 <style lang="scss">
 	.projects-list {
@@ -93,6 +38,20 @@
 		}
 		@media (max-width: 850px) {
 			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+
+	.project-wrap {
+		display: flex;
+		flex-direction: column;
+		transition: opacity 0.2s;
+
+		& > :global(.card) {
+			flex: 1;
+		}
+
+		&.faded {
+			opacity: 0.35;
 		}
 	}
 </style>

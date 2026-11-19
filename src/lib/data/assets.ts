@@ -50,7 +50,6 @@ const Assets = {
 	Datadog: a('datadog.png'),
 	GCP: a('gcloud.jpeg'),
 	MySQL: a('mysql.png'),
-	Jenkins: a('jenkins.png'),
 	Linux: a('linux.png'),
 	Ansible: a('ansible.jpeg'),
 };

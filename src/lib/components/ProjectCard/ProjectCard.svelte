@@ -10,8 +10,16 @@
 	import type { Project } from '$lib/types';
 	import { getAssetURL } from '$lib/data/assets';
 	import { base } from '$app/paths';
+	import { projectBullets, projectTools, toolsIn } from '$lib/expertise';
 
 	export let project: Project;
+	/** Tool picked in the filter row; matching bullets stand out, the rest fade. */
+	export let highlight: string | undefined = undefined;
+
+	const bullets = projectBullets(project);
+	const tools = projectTools(project);
+	// Older entries have one free-text description: show it as a paragraph, not a one-item list.
+	const asList = !!project.bullets?.length;
 	$: months = countMonths(project.period.from, project.period.to);
 	$: period = `${months} month${months > 1 ? 's' : ''}`;
 	$: from = `${getMonthName(project.period.from.getMonth())} ${project.period.from.getFullYear()}`;
@@ -35,7 +43,15 @@
 		<p class="project-card-type">{project.type}</p>
 		<p class="project-card-period">{period}</p>
 	</div>
-	<p class="project-card-description">{project.description}</p>
+	{#if asList}
+		<ul class="project-card-bullets">
+			{#each bullets as bullet}
+				<li class:dim={highlight && !toolsIn(bullet).includes(highlight)}>{bullet.text}</li>
+			{/each}
+		</ul>
+	{:else}
+		<p class="project-card-description">{project.description}</p>
+	{/if}
 	<div class="project-card-bottom">
 		<Chip label={from} />
 		{#if from !== to}
@@ -44,7 +60,7 @@
 	</div>
 	<CardDivider />
 	<div class="project-card-technologies">
-		{#each project.skills as tech}
+		{#each tools as tech}
 			<ChipIcon
 				logo={getAssetURL(tech.logo)}
 				name={tech.name}
@@ -93,7 +109,33 @@
 			text-transform: uppercase;
 		}
 
+		&-bullets {
+			margin: 0 0 20px;
+			padding-left: 18px;
+			list-style: disc;
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+			flex: 1;
+			line-height: 1.45em;
+			font-size: 0.9em;
+			color: var(--accent-text);
+
+			& li {
+				transition: opacity 0.2s;
+			}
+
+			& li.dim {
+				opacity: 0.3;
+			}
+		}
+
+		&-technologies {
+			flex-wrap: wrap;
+		}
+
 		&-description {
+			white-space: pre-line;
 			line-height: 1.4em;
 			font-size: 0.9em;
 			flex: 1;

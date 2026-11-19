@@ -15,12 +15,16 @@
 	export let id: string | undefined = undefined;
 
 	$: borderColor = changeColorOpacity(color, 0.5);
-	$: dropColor = changeColorOpacity(color, 0.15);
+	$: dropColor = changeColorOpacity(color, 0.25);
 	$: bgColor = changeColorOpacity(color, 0.01);
 
 	$: {
 		if (el) {
-			el.style.setProperty('--border-color', borderColor);
+			// Cards without their own colour keep the normal hover border.
+			el.style.setProperty(
+				'--border-color',
+				color === '#ffffff00' ? 'var(--border-hover)' : borderColor
+			);
 			el.style.setProperty('--drop-color', dropColor);
 			el.style.setProperty('--bg-color', bgColor);
 		}
@@ -119,7 +123,8 @@
 
 		&:hover {
 			transform: perspective(1000px) rotateX(var(--rot-x)) rotateY(var(--rot-y)) scale(1.01);
-			border-color: var(--border-hover);
+			/* Border picks up the card's own colour (from its logo); plain border if none. */
+			border-color: var(--border-color, var(--border-hover));
 		}
 	}
 </style>

@@ -4,17 +4,30 @@ import type { Project } from './types';
 
 const MY_PROJECTS: Array<Project> = [
 	{
-		slug: 'personal-website',
-		color: '#008000',
-		description:"Vercel theme inspired personal portfolio website which is hosted on github and rendered through github pages.",
-		links: [{ to: 'https://github.com/AkhilGandhi1999/Personal-Website', label: 'GitHub' }],
-		logo: Assets.Svelte,
-		name: 'Portfolio',
+		slug: 'timesheet-automation',
+		short: 'Capstone',
+		// Résumé: CU Boulder M.S. capstone, sponsored by Rule4, for academic credit (not employment).
+		bullets: [
+			{
+				text: 'Built a Go backend service that aggregated Slack and Google Calendar data over Kafka streams for real-time processing.',
+				practices: []
+			},
+			{
+				text: 'Turned the aggregated data into automated timesheet-entry suggestions for the sponsoring consultancy, with the UI shipped as a Vue.js layer in their existing Django app.',
+				practices: []
+			}
+		],
+		color: '#00ADD8',
+		description: '',
+		links: [],
+		logo: Assets.Go,
+		name: 'Timesheet Automation',
 		period: {
-			from: new Date(2023, 0)
+			from: new Date(2023, 7),
+			to: new Date(2024, 3)
 		},
-		skills: getSkills('docker', 'aws', 'js'),
-		type: 'Website'
+		skills: getSkills('go', 'kafka', 'vuejs', 'django'),
+		type: 'M.S. Capstone · sponsored by Rule4'
 	},
 	{
 		slug: 'amazon-price-tracker',
@@ -22,20 +35,18 @@ const MY_PROJECTS: Array<Project> = [
 		// Résumé bullets (Akhil_Gandhi_Resume_Immigration.docx), tagged by practice area.
 		bullets: [
 			{
-				text: "Python/Flask service with cron-based scraper jobs on EKS; Redis caching, S3 storage, and Apache Traffic Server as a reverse proxy and cache layer.",
+				text: 'Python/Flask service with cron-based scraper jobs on EKS; Redis caching, S3 storage, and Apache Traffic Server as a reverse proxy and cache layer.',
 				practices: ['k8s-platform']
 			},
 			{
-				text: "Instrumented with Prometheus metrics and Grafana dashboards; Dockerized with Helm charts and GitHub Actions CI/CD including image security scans.",
+				text: 'Instrumented with Prometheus metrics and Grafana dashboards; Dockerized with Helm charts and GitHub Actions CI/CD including image security scans.',
 				practices: ['observability', 'release']
 			}
 		],
-		color: '#008000',
-		description:"This website is a price tracker, built to monitor prices in real-time and send automated email notifications for any changes. It's developed using Vue.js, with Grafana and Prometheus for monitoring.\n\
-					The site uses Firebase for authentication and AWS S3 for storing assets.\n\
-					Explore to see how it can help you stay updated with the latest price trends effortlessly!",
+		color: '#326CE5',
+		description: '',
 		links: [{ to: 'https://github.com/AkhilGandhi1999/Amazon-Price-Tracker', label: 'GitHub' }],
-		logo: Assets.VueJs,
+		logo: Assets.Kubernetes,
 		name: 'Amazon Price Tracker',
 		period: {
 			from: new Date(2023, 0),
@@ -46,14 +57,28 @@ const MY_PROJECTS: Array<Project> = [
 	},
 	{
 		slug: 'budget-based-activity-recommendation',
-		color: '#008000',
-		description:"This platform is designed to help you plan the perfect trip within your budget.\n\
-					Its built as a single-page application using Vue.js and integrates with AWS S3, Weather API, and Google Maps API.\n\
-					The system offers personalized activity suggestions, itinerary planning, and real-time trip metrics. \n\
-					Our backend uses Flask based RESTful APIs on Linux EC2 with Redis caching, ensuring efficient performance.",
-		links: [{ to: 'https://github.com/AkhilGandhi1999/Budget-Based-Activity-Recommendation-And-Planner-Frontend', label: 'GitHub' }],
+		short: 'Budget Planner',
+		// Résumé bullets (added Nov 19, 2026).
+		bullets: [
+			{
+				text: 'Vue.js single-page app that plans trips within a budget, with personalized activity suggestions, itinerary planning, and real-time trip metrics from the Weather and Google Maps APIs.',
+				practices: []
+			},
+			{
+				text: 'Flask REST APIs on Linux EC2 with Redis caching and S3 storage.',
+				practices: []
+			}
+		],
+		color: '#42B883',
+		description: '',
+		links: [
+			{
+				to: 'https://github.com/AkhilGandhi1999/Budget-Based-Activity-Recommendation-And-Planner-Frontend',
+				label: 'GitHub'
+			}
+		],
 		logo: Assets.VueJs,
-		name: 'Budget Based Activity Recommendation',
+		name: 'Budget-Based Activity Recommendation & Planner',
 		period: {
 			from: new Date(2023, 0),
 			to: new Date(2023, 3)
@@ -63,13 +88,19 @@ const MY_PROJECTS: Array<Project> = [
 	},
 	{
 		slug: 'web-stable-diffusion',
-		color: '#5e95e3',
-		description:"Developed a scalable web UI using Vue.js and Flask, containerized with Docker,\n\
+		color: '#2496ED',
+		description:
+			'Developed a scalable web UI using Vue.js and Flask, containerized with Docker,\n\
 					for seamless integration across frontend, backend, and S3 Buckets. \n\
 					Programmed RESTful APIs and incorporated Vuex for efficient state management.\n\
 					Implemented Kubernetes on GCP with an ingress controller to enhance scalability and load balancing,\n\
-					ensuring robust performance and reliability.",
-		links: [{ to: 'https://github.com/AkhilGandhi1999/Web-App-Stable-Diffusion-Frontend', label: 'GitHub' }],
+					ensuring robust performance and reliability.',
+		links: [
+			{
+				to: 'https://github.com/AkhilGandhi1999/Web-App-Stable-Diffusion-Frontend',
+				label: 'GitHub'
+			}
+		],
 		logo: Assets.Docker,
 		name: 'Web UI Stable Diffusion',
 		period: {
@@ -81,11 +112,12 @@ const MY_PROJECTS: Array<Project> = [
 	},
 	{
 		slug: 'medicine-reminder',
-		color: '#008000',
-		description:"Developed an Android app for medicine tracking, featuring a graph library for\n\
+		color: '#3DDC84',
+		description:
+			'Developed an Android app for medicine tracking, featuring a graph library for\n\
 					comprehensive monitoring of medication schedules. Prototyped the user interface with Adobe XD and\n\
 					incorporated Google Maps to display nearby pharmacies and hospitals within a 1-mile radius,\n\
-					ensuring users have easy access to essential medical facilities.",
+					ensuring users have easy access to essential medical facilities.',
 		links: [{ to: 'https://github.com/AkhilGandhi1999/Medicine-Reminder-App', label: 'GitHub' }],
 		logo: Assets.Android,
 		name: 'Medicine Reminder',
@@ -95,7 +127,7 @@ const MY_PROJECTS: Array<Project> = [
 		},
 		skills: getSkills('java', 'aws'),
 		type: 'Android App'
-	},
+	}
 ];
 
 export default MY_PROJECTS;
