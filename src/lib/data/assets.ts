@@ -40,8 +40,8 @@ const Assets = {
 	Redis: a('redis.svg'),
 	Jest: a('jest.png'),
 	Charter: a('charter.png'),
-	// Placeholder until a Pinterest logo is chosen.
-	Pinterest: a('glyph-work.svg'),
+	// Pinterest logo from Simple Icons (CC0), simple-icons@13.21.0, brand red.
+	Pinterest: a('pinterest.svg'),
 	Nice: a('nice.png'),
 	Datadog: a('datadog.png'),
 	GCP: a('gcloud.jpeg'),
