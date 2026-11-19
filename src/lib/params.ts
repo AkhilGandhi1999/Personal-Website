@@ -1,6 +1,6 @@
 import MY_EXPERIENCES from './experiences.params';
 import MY_PROJECTS from './projects.params';
-import MY_SKILLS from './skills.params';
+import MY_SKILLS, { pickSkills } from './skills.params';
 import {
 	Platform,
 	type HomePageParams,
@@ -43,7 +43,7 @@ export const HOME: HomePageParams = {
 	lastName: 'Gandhi',
 	// Compact version of the summary in Akhil_Gandhi_Resume_Immigration.docx.
 	description:
-		'Systems Engineer focused on site reliability. I run production Kubernetes (EKS) with GitOps delivery, observability, and 24/7 incident response, and build the automation behind it in Python and Terraform. CKA, Terraform, and Google Cloud certified, and an early adopter of agentic AI in day-to-day operations.',
+		'Site Reliability Engineer running production Kubernetes (EKS) with GitOps delivery, observability, and 24/7 incident response, and building the automation behind it in Python and Terraform. CKA, Terraform, and Google Cloud certified, and an early adopter of agentic AI in day-to-day operations.',
 	links: [
 		{	platform: Platform.GitHub, 
 			link: 'https://github.com/AkhilGandhi1999' 
@@ -64,7 +64,34 @@ export const HOME: HomePageParams = {
 			platform: Platform.Email,
 			link: 'akhil.gandhi10.ag@gmail.com'
 		}
-	]
+	],
+	// Home carousel: SRE / cloud / DevOps tools from the résumé, in this order.
+	skills: pickSkills(
+		// Platform & delivery
+		'kubernetes',
+		'aws',
+		'terraform',
+		'argocd',
+		'helm',
+		'istio',
+		'docker',
+		// Observability
+		'datadog',
+		'prometheus',
+		'grafana',
+		'splunk',
+		// CI/CD & automation
+		'github-actions',
+		'jenkins',
+		'ansible',
+		'packer',
+		// Cloud, OS & languages
+		'gcp',
+		'linux',
+		'python',
+		'go',
+		'bash'
+	)
 };
 
 export const PROJECTS: ProjectPageParams = {
