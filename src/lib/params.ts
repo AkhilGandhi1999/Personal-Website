@@ -76,7 +76,8 @@ export const SKILLS: SkillsPageParams = {
 
 export const RESUME: ResumePageParams = {
 	title: 'Resumé',
-	item: 'https://drive.google.com/file/d/1X4-RefVdZm4YkRE34OGhG1a-u-dGpkYw/view?usp=drive_link'
+	// File in static/. To update the résumé, replace that file (keep this name) and redeploy.
+	item: 'Akhil_Gandhi_Resume.pdf'
 };
 
 export const SEARCH: SearchPageParams = {
