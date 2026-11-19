@@ -41,7 +41,27 @@ export interface Skill extends Item {
 	color: string;
 }
 
+/** Practice areas shown under "What I do" on the Expertise page. */
+export type PracticeId =
+	| 'k8s-platform'
+	| 'release'
+	| 'incident'
+	| 'observability'
+	| 'security-cost'
+	| 'ai-ops';
+
+/** One résumé bullet. Tools are matched from the text automatically; `tools` adds any the text implies. */
+export interface Bullet {
+	text: string;
+	practices: Array<PracticeId>;
+	tools?: Array<string>;
+}
+
 export interface Project extends Item {
+	/** Résumé bullets (source: Akhil_Gandhi_Resume_Immigration.docx). Used by the Expertise page. */
+	bullets?: Array<Bullet>;
+	/** Short label for "used at" chips, e.g. "Charter · SRE". */
+	short?: string;
 	links: Array<Link>;
 	color: string;
 	period: {
