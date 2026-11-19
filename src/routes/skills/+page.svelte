@@ -28,7 +28,7 @@
 		<div class="practice-grid">
 			{#each PRACTICES as practice}
 				{@const examples = evidenceForPractice(practice.id)}
-				<article class="practice-card">
+				<article class="practice-card" id={practice.id}>
 					<h3 class="practice-name">{practice.name}</h3>
 					<p class="practice-summary">{practice.summary}</p>
 					{#if practice.tools.length}

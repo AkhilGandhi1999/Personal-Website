@@ -281,3 +281,32 @@ export const evidenceForSkill = (slug: string) => EVIDENCE.filter((e) => e.toolS
 
 /** Unique "used at" labels for a skill, in résumé order. */
 export const usedAt = (slug: string) => [...new Set(evidenceForSkill(slug).map((e) => e.source))];
+
+/** Practice areas a tool belongs to: listed as a key tool, or mentioned in one of the area's bullets. */
+export const practicesForSkill = (slug: string) => {
+	const fromBullets = new Set(evidenceForSkill(slug).flatMap((e) => e.practices));
+	return PRACTICES.filter((p) => p.tools.includes(slug) || fromBullets.has(p.id));
+};
+
+/** Tools that appear in the same bullets as this one, most frequent first. */
+export const relatedSkills = (slug: string, limit = 6) => {
+	const counts = new Map<string, number>();
+	evidenceForSkill(slug).forEach((e) =>
+		e.toolSlugs
+			.filter((s) => s !== slug)
+			.forEach((s) => counts.set(s, (counts.get(s) ?? 0) + 1))
+	);
+	return [...counts.entries()]
+		.sort((a, b) => b[1] - a[1])
+		.slice(0, limit)
+		.map(([s]) => s);
+};
+
+/** The toolbox entry (note, group) for a skill, if it is on the résumé. */
+export const toolboxEntry = (slug: string) => {
+	for (const group of TOOLBOX) {
+		const item = group.items.find((i) => i.skill === slug);
+		if (item) return { group: group.name, item };
+	}
+	return undefined;
+};
