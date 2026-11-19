@@ -73,7 +73,8 @@ export interface Project extends Item {
 }
 
 // Experience cards show résumé bullets, so the old free-text description is not needed.
-export interface Experience extends Omit<Project, 'description'> {
+// Their tool icons are worked out from the bullets (see toolsForExperience), so no hand-typed skills list.
+export interface Experience extends Omit<Project, 'description' | 'skills'> {
 	description?: string;
 	company: string;
 	location: string;
