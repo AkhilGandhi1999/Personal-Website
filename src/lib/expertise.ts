@@ -312,3 +312,32 @@ export const toolboxEntry = (slug: string) => {
 	}
 	return undefined;
 };
+
+/**
+ * One-line "what I did with it" summary shown at the top of a tool page.
+ * Written from résumé bullets only; tools with no bullet get no line.
+ */
+export const TOOL_SUMMARIES: Record<string, string> = {
+	kubernetes:
+		'Run 10+ multi-AZ EKS clusters for customer-facing apps, with zero-downtime node-group rotations and EKS upgrades.',
+	aws: 'Day-to-day platform: EKS, cross-account IAM across ~30 accounts, S3 lifecycle tiering, SCPs and AWS Config for tag enforcement.',
+	terraform:
+		'Reusable modules for NLB provisioning and Istio installation, with input validation and versioning standards.',
+	argocd: 'GitOps release operations on ArgoCD and Argo Rollouts, with blue-green and canary strategies.',
+	helm: 'Helm charts for Kubernetes deployments, plus Helm provider wiring in the platform EKS module.',
+	istio:
+		'Migrated selected production apps from Nginx to Istio: Gateway/VirtualService routing, staged mTLS, resilience patterns.',
+	docker: 'Dockerized the Amazon Price Tracker, with Helm charts and GitHub Actions CI/CD.',
+	'github-actions': 'CI/CD with image security scans for the Amazon Price Tracker.',
+	datadog:
+		'Analysis gates for canary releases, automated alert configuration, and MCP-connected observability audits.',
+	prometheus: 'Metrics instrumentation for the Amazon Price Tracker.',
+	grafana: 'Dashboards for the Amazon Price Tracker.',
+	python:
+		"Automation and services: Datadog alert configuration, the Django CVE platform, the Price Tracker's Flask service.",
+	django:
+		'Built the CVE remediation platform that maps findings to owning teams across ~30 AWS accounts.',
+	bash: 'Shell scripts that automate Datadog alert configuration in CI/CD pipelines.',
+	kafka: 'Consolidated Kafka topics while containerizing services at NICE.',
+	redis: 'Caching layer for the Amazon Price Tracker.'
+};
