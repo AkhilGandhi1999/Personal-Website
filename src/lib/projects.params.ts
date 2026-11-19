@@ -18,6 +18,18 @@ const MY_PROJECTS: Array<Project> = [
 	},
 	{
 		slug: 'amazon-price-tracker',
+		short: 'Amazon Price Tracker',
+		// Résumé bullets (Akhil_Gandhi_Resume_Immigration.docx), tagged by practice area.
+		bullets: [
+			{
+				text: "Python/Flask service with cron-based scraper jobs on EKS; Redis caching, S3 storage, and Apache Traffic Server as a reverse proxy and cache layer.",
+				practices: ['k8s-platform']
+			},
+			{
+				text: "Instrumented with Prometheus metrics and Grafana dashboards; Dockerized with Helm charts and GitHub Actions CI/CD including image security scans.",
+				practices: ['observability', 'release']
+			}
+		],
 		color: '#008000',
 		description:"This website is a price tracker, built to monitor prices in real-time and send automated email notifications for any changes. It's developed using Vue.js, with Grafana and Prometheus for monitoring.\n\
 					The site uses Firebase for authentication and AWS S3 for storing assets.\n\

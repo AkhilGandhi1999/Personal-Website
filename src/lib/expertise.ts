@@ -1,0 +1,275 @@
+// Data for the Expertise page (/skills): practice areas, the toolbox, certifications,
+// and helpers that connect them to the résumé bullets in experiences/projects.
+// Everything here comes from Akhil_Gandhi_Resume_Immigration.docx.
+
+import MY_EXPERIENCES from './experiences.params';
+import MY_PROJECTS from './projects.params';
+import type { Bullet, PracticeId } from './types';
+
+// ---------------------------------------------------------------------------
+// Practice areas ("What I do")
+// ---------------------------------------------------------------------------
+
+export interface Practice {
+	id: PracticeId;
+	name: string;
+	summary: string;
+}
+
+export const PRACTICES: Array<Practice> = [
+	{
+		id: 'k8s-platform',
+		name: 'Kubernetes & platform',
+		summary:
+			'10+ multi-AZ EKS clusters held to a 99.99% availability target; Istio service mesh; reusable Terraform modules.'
+	},
+	{
+		id: 'release',
+		name: 'Release engineering',
+		summary:
+			'GitOps releases on ArgoCD and Argo Rollouts with blue-green and canary: biweekly zero-downtime, sub-30-second rollbacks.'
+	},
+	{
+		id: 'incident',
+		name: 'Incident response',
+		summary:
+			'P0/P1 incident lead in a 24/7 on-call rotation; runbooks and an incident-command playbook that cut MTTR 30%.'
+	},
+	{
+		id: 'observability',
+		name: 'Observability',
+		summary:
+			'Datadog, Prometheus, Grafana and Splunk; automated alerting; MCP-connected observability workflows.'
+	},
+	{
+		id: 'security-cost',
+		name: 'Security & cost',
+		summary:
+			'CVE remediation platform across ~30 AWS accounts; FinOps tagging enforcement that delivered 15% monthly savings.'
+	},
+	{
+		id: 'ai-ops',
+		name: 'AI in operations',
+		summary:
+			'Agentic CLI as incident scribe, MCP servers for observability, AI-assisted cost analysis.'
+	}
+];
+
+// ---------------------------------------------------------------------------
+// Certifications
+// ---------------------------------------------------------------------------
+
+export interface Certification {
+	name: string;
+	short: string;
+	issued: string;
+	expires?: string;
+	url: string;
+	/** Skill slug this certification backs up. */
+	skill: string;
+}
+
+export const CERTIFICATIONS: Array<Certification> = [
+	{
+		name: 'HashiCorp Certified: Terraform Associate',
+		short: 'Terraform Associate',
+		issued: 'April 2026',
+		url: 'https://www.credly.com/badges/d242d24a-65dc-4d53-9c0a-e52e7c8a6d47/public_url',
+		skill: 'terraform'
+	},
+	{
+		name: 'Google Cloud Associate Cloud Engineer',
+		short: 'GCP ACE',
+		issued: 'March 2026',
+		url: 'https://www.credly.com/badges/3f2113fb-0aa9-4366-a59b-e9c297437e18/public_url',
+		skill: 'gcp'
+	},
+	{
+		name: 'CKA: Certified Kubernetes Administrator',
+		short: 'CKA',
+		issued: 'April 2025',
+		url: 'https://www.credly.com/badges/09712c2e-0c12-44cb-ae34-50436649afd9/public_url',
+		skill: 'kubernetes'
+	},
+	{
+		name: 'AWS Certified Developer – Associate',
+		short: 'AWS Developer',
+		issued: 'September 2023',
+		expires: 'September 2026',
+		url: 'https://www.credly.com/badges/71e873a6-ecf5-4b55-b1af-637e9d685199/public_url',
+		skill: 'aws'
+	}
+];
+
+export const certsFor = (skill: string) => CERTIFICATIONS.filter((c) => c.skill === skill);
+
+// ---------------------------------------------------------------------------
+// Toolbox: the résumé's Skills section, in its groups and order.
+// `skill` links the item to its /skills/<slug> page; items without one are plain text.
+// ---------------------------------------------------------------------------
+
+export interface ToolboxItem {
+	label: string;
+	skill?: string;
+	note?: string;
+}
+
+export interface ToolboxGroup {
+	name: string;
+	items: Array<ToolboxItem>;
+}
+
+export const TOOLBOX: Array<ToolboxGroup> = [
+	{
+		name: 'Kubernetes & Delivery',
+		items: [
+			{ label: 'Kubernetes', skill: 'kubernetes', note: 'EKS' },
+			{ label: 'Helm', skill: 'helm' },
+			{ label: 'ArgoCD', skill: 'argocd' },
+			{ label: 'Istio', skill: 'istio' },
+			{ label: 'Docker', skill: 'docker' },
+			{ label: 'GitHub Actions', skill: 'github-actions' },
+			{ label: 'Jenkins', skill: 'jenkins' },
+			{ label: 'Ansible', skill: 'ansible' },
+			{ label: 'Packer', skill: 'packer' }
+		]
+	},
+	{
+		name: 'Cloud & Infrastructure',
+		items: [
+			{
+				label: 'AWS',
+				skill: 'aws',
+				note: 'EKS, EC2, S3, Lambda, IAM, VPC, DynamoDB, API Gateway'
+			},
+			{ label: 'GCP', skill: 'gcp' },
+			{ label: 'Terraform', skill: 'terraform' },
+			{ label: 'Linux', skill: 'linux', note: 'RHEL, Ubuntu, Fedora' }
+		]
+	},
+	{
+		name: 'Observability',
+		items: [
+			{ label: 'Prometheus', skill: 'prometheus' },
+			{ label: 'Grafana', skill: 'grafana' },
+			{ label: 'Datadog', skill: 'datadog' },
+			{ label: 'Splunk', skill: 'splunk' },
+			{ label: 'BigPanda', note: 'AIOps event correlation' }
+		]
+	},
+	{
+		name: 'Languages & Frameworks',
+		items: [
+			{ label: 'Python', skill: 'python' },
+			{ label: 'Django', skill: 'django' },
+			{ label: 'boto3' },
+			{ label: 'Go', skill: 'go' },
+			{ label: 'Bash', skill: 'bash' },
+			{ label: 'SQL' },
+			{ label: 'JavaScript / TypeScript', skill: 'ts' }
+		]
+	},
+	{
+		name: 'AI Tooling',
+		items: [
+			{ label: 'MCP servers', note: 'Datadog, AWS, Webex' },
+			{ label: 'Agentic CLI workflows', note: 'Kiro' }
+		]
+	},
+	{
+		name: 'Data & Messaging',
+		items: [
+			{ label: 'Kafka', skill: 'kafka' },
+			{ label: 'Redis', skill: 'redis' },
+			{ label: 'PostgreSQL', skill: 'postgres' },
+			{ label: 'MySQL', skill: 'mysql' },
+			{ label: 'gRPC' },
+			{ label: 'REST' }
+		]
+	}
+];
+
+// ---------------------------------------------------------------------------
+// Evidence: every tagged résumé bullet, with where it came from and which tools it mentions.
+// ---------------------------------------------------------------------------
+
+/** How each tool is recognised in bullet text (case-sensitive, so "Go" ≠ "go"). */
+const TOOL_PATTERNS: Record<string, RegExp> = {
+	kubernetes: /\bKubernetes\b|\bEKS\b/,
+	helm: /\bHelm\b/,
+	argocd: /\bArgoCD\b|\bArgo Rollouts\b/,
+	istio: /\bIstio\b/,
+	docker: /\bDocker/,
+	'github-actions': /\bGitHub Actions\b/,
+	jenkins: /\bJenkins\b/,
+	ansible: /\bAnsible\b/,
+	packer: /\bPacker\b/,
+	aws: /\bAWS\b|\bS3\b|\bEKS\b/,
+	gcp: /\bGCP\b|\bGoogle Cloud\b/,
+	terraform: /\bTerraform\b/,
+	linux: /\bLinux\b/,
+	prometheus: /\bPrometheus\b/,
+	grafana: /\bGrafana\b/,
+	datadog: /\bDatadog\b/,
+	splunk: /\bSplunk\b/,
+	python: /\bPython\b/,
+	django: /\bDjango\b/,
+	go: /\bGo\b/,
+	bash: /\bBash\b|\bshell\b/,
+	ts: /\bTypeScript\b/,
+	kafka: /\bKafka\b/,
+	redis: /\bRedis\b/,
+	postgres: /\bPostgreSQL\b/,
+	mysql: /\bMySQL\b/,
+	java: /\bJava\b/,
+	vuejs: /\bVue\b/,
+	quasar: /\bQuasar\b/,
+	jest: /\bJest\b/
+};
+
+export interface Evidence extends Bullet {
+	/** Short source label, e.g. "Charter · SRE". */
+	source: string;
+	/** Longer label, e.g. "Site Reliability Engineer @ Charter Communications". */
+	sourceLong: string;
+	kind: 'experience' | 'projects';
+	sourceName: string;
+	/** All tool slugs: matched from the text plus any listed on the bullet. */
+	toolSlugs: Array<string>;
+}
+
+const toolsIn = (b: Bullet) => {
+	const found = Object.keys(TOOL_PATTERNS).filter((slug) => TOOL_PATTERNS[slug].test(b.text));
+	return [...new Set([...found, ...(b.tools ?? [])])];
+};
+
+export const EVIDENCE: Array<Evidence> = [
+	...MY_EXPERIENCES.flatMap((e) =>
+		(e.bullets ?? []).map((b) => ({
+			...b,
+			source: e.short ?? e.company,
+			sourceLong: `${e.name} @ ${e.company}`,
+			kind: 'experience' as const,
+			sourceName: e.name,
+			toolSlugs: toolsIn(b)
+		}))
+	),
+	...MY_PROJECTS.flatMap((p) =>
+		(p.bullets ?? []).map((b) => ({
+			...b,
+			source: p.short ?? p.name,
+			sourceLong: `${p.name} (${p.type})`,
+			kind: 'projects' as const,
+			sourceName: p.name,
+			toolSlugs: toolsIn(b)
+		}))
+	)
+];
+
+export const evidenceForPractice = (id: PracticeId) =>
+	EVIDENCE.filter((e) => e.practices.includes(id));
+
+export const evidenceForSkill = (slug: string) => EVIDENCE.filter((e) => e.toolSlugs.includes(slug));
+
+/** Unique "used at" labels for a skill, in résumé order. */
+export const usedAt = (slug: string) => [...new Set(evidenceForSkill(slug).map((e) => e.source))];

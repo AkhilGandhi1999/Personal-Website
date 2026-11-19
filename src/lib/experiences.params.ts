@@ -33,6 +33,47 @@ const bnt_data = "• Analyzed and compared A/B Testing,Multi-arm-bandit algorit
 const MY_EXPERIENCES: Array<Experience> = [
 	{
 		slug: 'systems-fulltime',
+		short: 'Charter · SRE',
+		// Résumé bullets (Akhil_Gandhi_Resume_Immigration.docx), tagged by practice area.
+		bullets: [
+			{
+				text: "Operate 10+ multi-AZ Kubernetes (EKS) clusters, one dedicated cluster per customer-facing application, supporting a 99.99% availability target through pod disruption budgets, topology spread, HPA with Cluster Autoscaler, and zero-downtime node-group rotations and EKS upgrades.",
+				practices: ['k8s-platform']
+			},
+			{
+				text: "Run GitOps release operations for a portfolio of production services on ArgoCD and Argo Rollouts, tuning blue-green and canary strategies with Datadog-based analysis gates to deliver biweekly zero-downtime releases and sub-30-second automated rollbacks.",
+				practices: ['release']
+			},
+			{
+				text: "Led P0/P1 incident response in a 24/7 on-call rotation with SOC escalation and BigPanda alert correlation, cutting MTTR 30% by codifying senior engineers' tribal knowledge into runbooks for the top 20 recurring alerts and a structured incident-command playbook.",
+				practices: ['incident']
+			},
+			{
+				text: "Built an AI-assisted incident workflow that uses an agentic CLI as a live incident scribe, capturing commands, logs, and hypotheses during the incident and auto-drafting postmortems and runbooks, saving hours of documentation work per incident.",
+				practices: ['incident', 'ai-ops']
+			},
+			{
+				text: "Building an AI-assisted observability workflow that connects Datadog, AWS, and Webex through MCP servers, enabling agent-driven audits of dashboard coverage gaps and richer debugging context for faster production triage.",
+				practices: ['observability', 'ai-ops']
+			},
+			{
+				text: "Designed and built a Django-based CVE remediation platform that ingests vulnerability reports and maps each finding to its owning application and environment across ~30 AWS accounts using tag-based attribution and cross-account IAM roles; the team tracks 200+ remediated CVEs per quarter on it, with critical and high findings consistently resolved within 7- and 14-day SLAs.",
+				practices: ['security-cost'],
+				tools: ['python']
+			},
+			{
+				text: "Migrated selected production applications from Nginx to Istio, implementing Gateway and VirtualService routing, a staged mTLS rollout, and resilience patterns including retries, timeouts, circuit breaking, and traffic mirroring.",
+				practices: ['k8s-platform']
+			},
+			{
+				text: "Engineered reusable Terraform modules for NLB provisioning and Istio installation, integrating them with the platform EKS module through IRSA and Helm provider wiring, with input validation and versioning standards for safe reuse across teams.",
+				practices: ['k8s-platform']
+			},
+			{
+				text: "Drove cloud cost optimization with FinOps through tag enforcement (SCPs and AWS Config rules), S3 lifecycle tiering, and rightsizing, delivering 15% monthly savings and raising tagging compliance from 0% to 95%; currently using agentic AI analysis to surface further optimization targets.",
+				practices: ['security-cost', 'ai-ops']
+			}
+		],
 		company: 'Charter Communications (Current-Active-Position)',
 		description: sre_charter_data,
 		contract: ContractType.FullTime,
@@ -47,6 +88,18 @@ const MY_EXPERIENCES: Array<Experience> = [
 	},
 	{
 		slug: 'associates-systems-engineer-intern',
+		short: 'Charter · Intern',
+		// Résumé bullets (Akhil_Gandhi_Resume_Immigration.docx), tagged by practice area.
+		bullets: [
+			{
+				text: "Automated Datadog alert configuration with Python and shell scripts wired into CI/CD pipelines, reducing downtime 15%.",
+				practices: ['observability']
+			},
+			{
+				text: "Managed Kubernetes deployments for a streaming service and built a CI/CD workflow for machine provisioning with observability tooling preinstalled.",
+				practices: ['k8s-platform', 'release']
+			}
+		],
 		company: 'Charter Communications',
 		description: charter_data,
 		contract: ContractType.Internship,
@@ -61,6 +114,22 @@ const MY_EXPERIENCES: Array<Experience> = [
 	}, 
 	{
 		slug: 'associate-software-engineer',
+		short: 'NICE',
+		// Résumé bullets (Akhil_Gandhi_Resume_Immigration.docx), tagged by practice area.
+		bullets: [
+			{
+				text: "Containerized Java and Python codebases, consolidated Kafka topics, and deployed to Kubernetes with Helm charts.",
+				practices: ['k8s-platform']
+			},
+			{
+				text: "Migrated the Actimize platform from Angular to a Vue SPA (30% faster loads); drove 90% Jest coverage via code reviews and refactoring.",
+				practices: []
+			},
+			{
+				text: "Built and documented an in-house Quasar UI component library; trained 50+ engineers on Vue.",
+				practices: []
+			}
+		],
 		company: 'NICE Systems',
 		description: nice_data,
 		contract: ContractType.FullTime,
