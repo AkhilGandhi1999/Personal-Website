@@ -4,7 +4,8 @@
 
 import MY_EXPERIENCES from './experiences.params';
 import MY_PROJECTS from './projects.params';
-import type { Bullet, PracticeId } from './types';
+import MY_SKILLS from './skills.params';
+import type { Bullet, PracticeId, Skill } from './types';
 
 // ---------------------------------------------------------------------------
 // Practice areas ("What I do")
@@ -342,4 +343,18 @@ export const TOOL_SUMMARIES: Record<string, string> = {
 	bash: 'Shell scripts that automate Datadog alert configuration in CI/CD pipelines.',
 	kafka: 'Consolidated Kafka topics while containerizing services at NICE.',
 	redis: 'Caching layer for the Amazon Price Tracker.'
+};
+
+/**
+ * Tools named in one job's bullets, most-mentioned first (ties keep résumé order).
+ * Experience cards use this, so their icons always match the bullets shown.
+ */
+export const toolsForExperience = (slug: string): Array<Skill> => {
+	const counts = new Map<string, number>();
+	for (const e of EVIDENCE.filter((ev) => ev.href === `/experience#${slug}`))
+		for (const t of e.toolSlugs) counts.set(t, (counts.get(t) ?? 0) + 1);
+	return [...counts.entries()]
+		.sort((a, b) => b[1] - a[1])
+		.map(([t]) => MY_SKILLS.find((s) => s.slug === t))
+		.filter((s): s is Skill => !!s);
 };

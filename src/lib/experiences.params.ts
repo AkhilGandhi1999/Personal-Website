@@ -1,5 +1,4 @@
 import Assets from './data/assets';
-import { getSkills } from './skills.params';
 import { ContractType, type Experience } from './types';
 
 const MY_EXPERIENCES: Array<Experience> = [
@@ -15,7 +14,6 @@ const MY_EXPERIENCES: Array<Experience> = [
 		// Starts Nov 30, 2026; no end date = "Present".
 		period: { from: new Date(2026, 10, 30) },
 		bullets: [],
-		skills: getSkills(),
 		color: '#ffffff',
 		links: [],
 		logo: Assets.Pinterest
@@ -69,7 +67,6 @@ const MY_EXPERIENCES: Array<Experience> = [
 		location: 'Greenwood Village, CO',
 		// June 2024 – last day Nov 20, 2026 (months are 0-based: 5 = June, 10 = November).
 		period: { from: new Date(2024, 5), to: new Date(2026, 10, 20) },
-		skills: getSkills('python', 'datadog', 'aws', 'docker', 'kubernetes', 'ansible', 'jenkins'),
 		// Official title — keep matching employer records (linked from LinkedIn).
 		name: 'Systems Engineer I',
 		color: '#ffffff',
@@ -95,7 +92,6 @@ const MY_EXPERIENCES: Array<Experience> = [
 		type: 'Dev Ops',
 		location: 'Greenwood Village, CO',
 		period: { from: new Date(2023, 5), to: new Date(2023, 7) },
-		skills: getSkills('python', 'datadog', 'aws', 'docker', 'kubernetes', 'ansible', 'jenkins'),
 		name: 'Associate Systems Engineer Intern',
 		color: '#ffffff',
 		links: [],
@@ -124,7 +120,6 @@ const MY_EXPERIENCES: Array<Experience> = [
 		type: 'Software Development',
 		location: 'Pune, India',
 		period: { from: new Date(2021, 6), to: new Date(2022, 6) },
-		skills: getSkills('vuejs', 'js', 'docker', 'aws'),
 		// Official title — keep matching employer records.
 		name: 'Associate Software Engineer',
 		color: '#ffffff',

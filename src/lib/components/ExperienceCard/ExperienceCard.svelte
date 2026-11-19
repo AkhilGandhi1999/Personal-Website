@@ -7,8 +7,11 @@
 	import Chip from '../Chip/Chip.svelte';
 	import ChipIcon from '../Chip/ChipIcon.svelte';
 	import { getAssetURL } from '$lib/data/assets';
+	import { toolsForExperience } from '$lib/expertise';
 
 	export let experience: Experience;
+
+	const tools = toolsForExperience(experience.slug);
 
 	const months = countMonths(experience.period.from, experience.period.to);
 	const from = `${getMonthName(
@@ -41,7 +44,7 @@
 				</ul>
 			{/if}
 			<div class="experience-skills">
-				{#each experience.skills as skill}
+				{#each tools as skill}
 					<ChipIcon logo={getAssetURL(skill.logo)} name={skill.name} />
 				{/each}
 			</div>

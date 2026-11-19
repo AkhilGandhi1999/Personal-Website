@@ -3,7 +3,6 @@
 	import CardLogo from '$lib/components/Card/CardLogo.svelte';
 	import MainTitle from '$lib/components/MainTitle/MainTitle.svelte';
 	import TabTitle from '$lib/components/TabTitle.svelte';
-	import MY_EXPERIENCES from '$lib/experiences.params';
 	import MY_PROJECTS from '$lib/projects.params';
 	import MY_SKILLS from '$lib/skills.params';
 
@@ -48,12 +47,6 @@
 					slug: p.slug,
 					type: 'projects'
 				})),
-				...MY_EXPERIENCES.filter((e) => e.skills.some((t) => t.slug === slug)).map((e) => ({
-					img: getAssetURL(e.logo),
-					display: `${e.name} @ ${e.company}`,
-					slug: e.slug,
-					type: 'experience'
-				}))
 		  ] as Array<Tagged>);
 
 	$: computedTitle = skill ? `${skill.name} - ${title}` : title;
