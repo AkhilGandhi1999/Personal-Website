@@ -46,8 +46,6 @@ const Assets = {
 	MySQL: a('mysql.png'),
 	Jenkins: a('jenkins.png'),
 	Linux: a('linux.png'),
-	Algo: a('algo.png'),
-	BNT: a('bnt.png'),
 	Ansible: a('ansible.jpeg'),
 };
 

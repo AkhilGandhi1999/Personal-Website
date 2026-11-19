@@ -21,14 +21,6 @@ const charter_data ="• Automated Datadog alert configurations using shell and 
 • Designed and orchestrated a comprehensive CI/CD workflow for machine provisioning, including the installation and configuration of observability tools. \n\
 • Managed Kubernetes cluster deployments for a streaming service, ensuring optimal performance, high availability, and scalability to support a growing user base."
 
-const algo_data = "• Led development of Flask-based REST APIs for virtual try-on of clothes and body measurements with over 90% accuracy.\n\
-• Deployed Flask application on AWS EC2 (Linux) instance with Auto Scaling triggered by CloudWatch CPU utilization and Elastic Load Balancer, ensuring efficient API Gateway service access with IAM policies.\n\
-• Programmed Android app in Java, implementing object-oriented programming (OOP) concepts for image capture, result display, and secure backend integration using AWS SDK and gateways for reliable API connections."
-
-const bnt_data = "• Analyzed and compared A/B Testing,Multi-arm-bandit algorithm and drafted report summarizing the implications of both models.\n\
-• Implemented a web-based dashboard that uses a Multi-arm-bandit approach for finding the conversion rate for versions of web pages and increased clients revenue by 15%.\n\
-• Designed a relational database, applied normalization techniques to optimize performance, and improved the response time by 10%"
-
 
 const MY_EXPERIENCES: Array<Experience> = [
 	{
@@ -143,34 +135,6 @@ const MY_EXPERIENCES: Array<Experience> = [
 		color: '#ffffff',
 		links: [],
 		logo: Assets.Nice
-	},
-	{
-		slug: 'software-engineer',
-		company: 'AlgoAnalytics',
-		description: algo_data,
-		contract: ContractType.Internship,
-		type: 'Software Engineer',
-		location: 'Pune, MH, India',
-		period: { from: new Date(2020, 7), to: new Date(2021, 2) },
-		skills: getSkills('python', 'flask', 'aws', 'docker', 'nginx', 'linux'),
-		name: 'Software Engineer',
-		color: '#ffffff',
-		links: [],
-		logo: Assets.Algo
-	},
-	{
-		slug: 'python-developer',
-		company: 'BNT Soft',
-		description: bnt_data,
-		contract: ContractType.Internship,
-		type: 'Software Development',
-		location: 'Pune, MH, India',
-		period: { from: new Date(2020, 4), to: new Date(2020, 6) },
-		skills: getSkills('python', 'flask', 'postgres', 'nginx'),
-		name: 'Python Developer',
-		color: '#ffffff',
-		links: [],
-		logo: Assets.BNT
 	}
 ];
 
