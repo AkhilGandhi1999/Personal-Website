@@ -41,12 +41,6 @@
 			{/each}
 		</div>
 		<div class="flex flex-row self-stretch items-stretch gap-1">
-			<a
-				href={`${base}/search`}
-				class="flex flex-row items-center self-stretch cursor-pointer px-4 py-0.5 hover:bg-[color:var(--main-hover)]"
-			>
-				<Icon icon={Icons.Search} size="16" color="var(--secondary-text)" />
-			</a>
 			<button
 				class="hover:bg-[color:var(--main-hover)] text-[var(--secondary-text)] px-2"
 				on:click={() => toggleTheme()}

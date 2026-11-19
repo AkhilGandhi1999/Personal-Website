@@ -7,8 +7,7 @@ import {
 	type ProjectPageParams,
 	type ExperiencePageParams,
 	type SkillsPageParams,
-	type ResumePageParams,
-	type SearchPageParams
+	type ResumePageParams
 } from './types';
 import { Icons } from './utils';
 
@@ -112,8 +111,4 @@ export const RESUME: ResumePageParams = {
 	title: 'Résumé',
 	// File in static/. To update the résumé, replace that file (keep this name) and redeploy.
 	item: 'Akhil_Gandhi_Resume.pdf'
-};
-
-export const SEARCH: SearchPageParams = {
-	title: 'Search'
 };
