@@ -33,7 +33,7 @@ const bnt_data = "• Analyzed and compared A/B Testing,Multi-arm-bandit algorit
 const MY_EXPERIENCES: Array<Experience> = [
 	{
 		slug: 'systems-fulltime',
-		short: 'Charter · SRE',
+		short: 'Charter',
 		// Résumé bullets (Akhil_Gandhi_Resume_Immigration.docx), tagged by practice area.
 		bullets: [
 			{
@@ -77,11 +77,12 @@ const MY_EXPERIENCES: Array<Experience> = [
 		company: 'Charter Communications (Current-Active-Position)',
 		description: sre_charter_data,
 		contract: ContractType.FullTime,
-		type: 'Site Reliability Engineering',
+		type: 'Systems Engineer I',
 		location: 'Greenwood Village, CO, USA',
 		period: { from: new Date(2024, 6), to: new Date() },
 		skills: getSkills('python', 'datadog', 'aws', 'docker', 'kubernetes', 'ansible', 'gitlab', 'github', 'git', 'jenkins'),
-		name: 'Site Reliability Engineer',
+		// Official title — keep matching employer records (linked from LinkedIn).
+		name: 'Systems Engineer I',
 		color: '#ffffff',
 		links: [],
 		logo: Assets.Charter
