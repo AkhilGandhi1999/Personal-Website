@@ -26,6 +26,10 @@ const Assets = {
 	Go: a('go.svg'),
 	Kafka: a('kafka.jpeg'),
 	Nginx: a('nginx.svg'),
+	// Hand-drawn glyphs for tools without a usable logo.
+	BigPanda: a('glyph-alert.svg'),
+	MCP: a('glyph-mcp.svg'),
+	AgenticCLI: a('glyph-terminal.svg'),
 	Docker: a('docker.svg'),
 	Kubernetes: a('kube.png'),
 	TypeScript: a('ts.png'),
