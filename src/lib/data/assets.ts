@@ -40,6 +40,8 @@ const Assets = {
 	Redis: a('redis.svg'),
 	Jest: a('jest.png'),
 	Charter: a('charter.png'),
+	// Placeholder until a Pinterest logo is chosen.
+	Pinterest: a('glyph-work.svg'),
 	Nice: a('nice.png'),
 	Datadog: a('datadog.png'),
 	GCP: a('gcloud.jpeg'),

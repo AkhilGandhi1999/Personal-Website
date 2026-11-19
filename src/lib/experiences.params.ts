@@ -4,6 +4,23 @@ import { ContractType, type Experience } from './types';
 
 const MY_EXPERIENCES: Array<Experience> = [
 	{
+		slug: 'pinterest-sre-2',
+		short: 'Pinterest',
+		// Official title from the offer (tvScientific by Pinterest). No bullets until there is real work to describe.
+		name: 'Site Reliability Engineer II',
+		type: 'Site Reliability Engineer II',
+		company: 'Pinterest',
+		contract: ContractType.FullTime,
+		location: 'Remote · Denver, CO',
+		// Starts Nov 30, 2026; no end date = "Present".
+		period: { from: new Date(2026, 10, 30) },
+		bullets: [],
+		skills: getSkills(),
+		color: '#ffffff',
+		links: [],
+		logo: Assets.Pinterest
+	},
+	{
 		slug: 'systems-fulltime',
 		short: 'Charter',
 		// Résumé bullets (Akhil_Gandhi_Resume_Immigration.docx), tagged by practice area.
@@ -46,11 +63,12 @@ const MY_EXPERIENCES: Array<Experience> = [
 				practices: ['security-cost', 'ai-ops']
 			}
 		],
-		company: 'Charter Communications (Current-Active-Position)',
+		company: 'Charter Communications',
 		contract: ContractType.FullTime,
 		type: 'Systems Engineer I',
-		location: 'Greenwood Village, CO, USA',
-		period: { from: new Date(2024, 6), to: new Date() },
+		location: 'Greenwood Village, CO',
+		// June 2024 – last day Nov 20, 2026 (months are 0-based: 5 = June, 10 = November).
+		period: { from: new Date(2024, 5), to: new Date(2026, 10, 20) },
 		skills: getSkills('python', 'datadog', 'aws', 'docker', 'kubernetes', 'ansible', 'jenkins'),
 		// Official title — keep matching employer records (linked from LinkedIn).
 		name: 'Systems Engineer I',
@@ -75,7 +93,7 @@ const MY_EXPERIENCES: Array<Experience> = [
 		company: 'Charter Communications',
 		contract: ContractType.Internship,
 		type: 'Dev Ops',
-		location: 'Greenwood Village, CO, USA',
+		location: 'Greenwood Village, CO',
 		period: { from: new Date(2023, 5), to: new Date(2023, 7) },
 		skills: getSkills('python', 'datadog', 'aws', 'docker', 'kubernetes', 'ansible', 'jenkins'),
 		name: 'Associate Systems Engineer Intern',
@@ -104,7 +122,7 @@ const MY_EXPERIENCES: Array<Experience> = [
 		company: 'NICE Interactive Solutions',
 		contract: ContractType.FullTime,
 		type: 'Software Development',
-		location: 'Pune, MH, India',
+		location: 'Pune, India',
 		period: { from: new Date(2021, 6), to: new Date(2022, 6) },
 		skills: getSkills('vuejs', 'js', 'docker', 'aws'),
 		// Official title — keep matching employer records.
