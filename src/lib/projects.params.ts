@@ -86,6 +86,28 @@ const MY_PROJECTS: Array<Project> = [
 		skills: getSkills('vuejs', 'docker', 'aws', 'quasar', 'flask'),
 		type: 'Website'
 	},
+	{
+		slug: 'medicine-reminder',
+		short: 'Medicine Reminder',
+		// Résumé line (added Nov 19, 2026), condensed from the original project description.
+		bullets: [
+			{
+				text: 'Android app in Java for tracking medication schedules with charts, plus Google Maps showing nearby pharmacies and hospitals within a 1-mile radius.',
+				practices: []
+			}
+		],
+		color: '#3DDC84',
+		description: '',
+		links: [{ to: 'https://github.com/AkhilGandhi1999/Medicine-Reminder-App', label: 'GitHub' }],
+		logo: Assets.Android,
+		name: 'Medicine Reminder',
+		period: {
+			from: new Date(2020, 0),
+			to: new Date(2020, 6)
+		},
+		skills: getSkills('java'),
+		type: 'Android App'
+	}
 ];
 
 export default MY_PROJECTS;
