@@ -13,7 +13,7 @@ const MY_PROJECTS: Array<Project> = [
 		period: {
 			from: new Date(2023, 0)
 		},
-		skills: getSkills('svelte', 'react', 'docker', 'aws', 'git', 'js', 'github'),
+		skills: getSkills('docker', 'aws', 'js'),
 		type: 'Website'
 	},
 	{
@@ -41,7 +41,7 @@ const MY_PROJECTS: Array<Project> = [
 			from: new Date(2023, 0),
 			to: new Date(2023, 4)
 		},
-		skills: getSkills('vuejs', 'nginx', 'docker', 'aws', 'git', 'flask', 'gunicorn'),
+		skills: getSkills('vuejs', 'nginx', 'docker', 'aws', 'flask'),
 		type: 'Website'
 	},
 	{
@@ -58,7 +58,7 @@ const MY_PROJECTS: Array<Project> = [
 			from: new Date(2023, 0),
 			to: new Date(2023, 3)
 		},
-		skills: getSkills('vuejs', 'sass', 'docker', 'aws', 'quasar', 'flask'),
+		skills: getSkills('vuejs', 'docker', 'aws', 'quasar', 'flask'),
 		type: 'Website'
 	},
 	{
@@ -93,7 +93,7 @@ const MY_PROJECTS: Array<Project> = [
 			from: new Date(2020, 0),
 			to: new Date(2020, 6)
 		},
-		skills: getSkills('android', 'java', 'aws'),
+		skills: getSkills('java', 'aws'),
 		type: 'Android App'
 	},
 ];

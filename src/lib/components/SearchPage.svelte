@@ -19,15 +19,19 @@
 		if (browser && mounted) {
 			let searchParams = new URLSearchParams(window.location.search);
 
-			searchParams.set('q', search);
+			// Only rewrite the address when the search text really changed,
+			// so links like /experience#card keep their #card part.
+			if ((searchParams.get('q') ?? '') !== search) {
+				searchParams.set('q', search);
 
-			const url = `${window.location.protocol}//${window.location.host}${
-				window.location.pathname
-			}?${searchParams.toString()}`;
+				const url = `${window.location.protocol}//${window.location.host}${
+					window.location.pathname
+				}?${searchParams.toString()}${window.location.hash}`;
 
-			const state = window.history.state;
+				const state = window.history.state;
 
-			window.history.replaceState(state, '', url);
+				window.history.replaceState(state, '', url);
+			}
 		}
 	}
 

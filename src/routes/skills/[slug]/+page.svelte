@@ -38,20 +38,20 @@
 	$: summary = slug ? TOOL_SUMMARIES[slug] : undefined;
 
 	// Fallback for skills not yet covered by résumé bullets: the jobs/projects tagged with it.
-	type Tagged = { display: string; name: string; img: string; type: 'projects' | 'experience' };
+	type Tagged = { display: string; slug: string; img: string; type: 'projects' | 'experience' };
 	$: tagged = !slug
 		? []
 		: ([
 				...MY_PROJECTS.filter((p) => p.skills.some((t) => t.slug === slug)).map((p) => ({
 					img: getAssetURL(p.logo),
 					display: `${p.name} (${p.type})`,
-					name: p.name,
+					slug: p.slug,
 					type: 'projects'
 				})),
 				...MY_EXPERIENCES.filter((e) => e.skills.some((t) => t.slug === slug)).map((e) => ({
 					img: getAssetURL(e.logo),
 					display: `${e.name} @ ${e.company}`,
-					name: e.name,
+					slug: e.slug,
 					type: 'experience'
 				}))
 		  ] as Array<Tagged>);
@@ -124,7 +124,7 @@
 							<li>
 								<a
 									class="evidence-source"
-									href={`${base}/${ex.kind}?q=${encodeURIComponent(ex.sourceName)}`}
+									href={`${base}${ex.href}`}
 									title={ex.sourceLong}>{ex.source}</a
 								>
 								{ex.text}
@@ -142,8 +142,8 @@
 							<div
 								class="border rounded border-[color:var(--border)] px-2.5 py-1 text-[var(--tertiary-text)]"
 							>
-								<a class="flex flex-row items-center" href={`${base}/${item.type}?q=${item.name}`}>
-									<CardLogo src={item.img} alt={item.name} radius={'0px'} size={17} classes="mr-2" />
+								<a class="flex flex-row items-center" href={`${base}/${item.type}#${item.slug}`}>
+									<CardLogo src={item.img} alt="" radius={'0px'} size={17} classes="mr-2" />
 									<span class="text-[0.9em]">{item.display}</span>
 								</a>
 							</div>
@@ -152,7 +152,7 @@
 				{:else}
 					<p class="text-[var(--tertiary-text)]">
 						Not part of my current toolbox. See <a class="underline" href={`${base}/skills`}
-							>Skills</a
+							>Expertise</a
 						> for what I work with today.
 					</p>
 				{/if}

@@ -193,7 +193,7 @@ export const TOOLBOX: Array<ToolboxGroup> = [
 			{ label: 'Redis', skill: 'redis' },
 			{ label: 'PostgreSQL', skill: 'postgres' },
 			{ label: 'MySQL', skill: 'mysql' },
-			{ label: 'gRPC', logo: 'glyph-api.svg' },
+			{ label: 'gRPC', logo: 'grpc.svg' },
 			{ label: 'REST', logo: 'glyph-api.svg' }
 		]
 	}
@@ -242,8 +242,8 @@ export interface Evidence extends Bullet {
 	source: string;
 	/** Longer label, e.g. "Site Reliability Engineer @ Charter Communications". */
 	sourceLong: string;
-	kind: 'experience' | 'projects';
-	sourceName: string;
+	/** Link (without base path) to the exact Experience or Project card. */
+	href: string;
 	/** All tool slugs: matched from the text plus any listed on the bullet. */
 	toolSlugs: Array<string>;
 }
@@ -259,8 +259,7 @@ export const EVIDENCE: Array<Evidence> = [
 			...b,
 			source: e.short ?? e.company,
 			sourceLong: `${e.name} @ ${e.company}`,
-			kind: 'experience' as const,
-			sourceName: e.name,
+			href: `/experience#${e.slug}`,
 			toolSlugs: toolsIn(b)
 		}))
 	),
@@ -269,8 +268,7 @@ export const EVIDENCE: Array<Evidence> = [
 			...b,
 			source: p.short ?? p.name,
 			sourceLong: `${p.name} (${p.type})`,
-			kind: 'projects' as const,
-			sourceName: p.name,
+			href: `/projects#${p.slug}`,
 			toolSlugs: toolsIn(b)
 		}))
 	)
@@ -282,7 +280,11 @@ export const evidenceForPractice = (id: PracticeId) =>
 export const evidenceForSkill = (slug: string) => EVIDENCE.filter((e) => e.toolSlugs.includes(slug));
 
 /** Unique "used at" labels for a skill, in résumé order. */
-export const usedAt = (slug: string) => [...new Set(evidenceForSkill(slug).map((e) => e.source))];
+export const usedAt = (slug: string) => {
+	const seen = new Map<string, string>();
+	for (const e of evidenceForSkill(slug)) if (!seen.has(e.source)) seen.set(e.source, e.href);
+	return [...seen].map(([source, href]) => ({ source, href }));
+};
 
 /** Practice areas a tool belongs to: listed as a key tool, or mentioned in one of the area's bullets. */
 export const practicesForSkill = (slug: string) => {

@@ -19,7 +19,7 @@ export const NavBar = {
 	personal: 'Projects',
 	career: 'Experiences',
 	resume: 'Resume',
-	skills: 'Skills'
+	skills: 'Expertise'
 };
 
 export const getPlatfromIcon = (platform: Platform): Icons => {
@@ -105,7 +105,7 @@ export const EXPERIENCES: ExperiencePageParams = {
 };
 
 export const SKILLS: SkillsPageParams = {
-	title: 'Skills',
+	title: 'Expertise',
 	items: MY_SKILLS
 };
 

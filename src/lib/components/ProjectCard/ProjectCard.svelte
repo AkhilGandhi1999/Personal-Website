@@ -20,7 +20,7 @@
 		: 'now';
 </script>
 
-<Card color={project.color}>
+<Card id={project.slug} color={project.color}>
 	<CardLogo alt={project.name} src={getAssetURL(project.logo)} size={40} radius={'0'} />
 	<div class="project-card-top">
 		<CardTitle title={project.name} />
