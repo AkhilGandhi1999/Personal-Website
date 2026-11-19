@@ -3,15 +3,18 @@
 	import CommonPage from '$lib/components/CommonPage.svelte';
 	import PdfViewer from 'svelte-pdf';
 
-	import Assets from '$lib/data/assets';
+	import { base } from '$app/paths';
 	import { RESUME } from '$lib/params';
 	const { item, title } = RESUME;
+
+	// Served from static/ — the phone-free website copy of the résumé.
+	const resumeUrl = `${base}/Akhil_Gandhi_Resume.pdf`;
 </script>
 
 <CommonPage {title}>
 	<div class="resume">
 		{#if item}
-			<PdfViewer url={Assets.Resume} data="" showButtons={['zoom', 'print', 'download']} />
+			<PdfViewer url={resumeUrl} data="" showButtons={['zoom', 'print', 'download']} />
 
 			<!-- <a href={item}>
 				<Chip label="Download" size={'1.25em'} />
