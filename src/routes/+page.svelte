@@ -17,6 +17,15 @@
 
 		return !isBlank(email) && reg.test(email);
 	};
+
+	// Shown as a hover tooltip and read out by screen readers.
+	const linkLabels: Record<string, string> = {
+		github: 'GitHub',
+		linkedin: 'LinkedIn',
+		stackoverflow: 'Stack Overflow',
+		credly: 'Credly (certification badges)',
+		email: 'Email'
+	};
 </script>
 
 <svelte:head>
@@ -34,6 +43,8 @@
 					href={`${isEmail(link.link) ? 'mailto:' : ''}${link.link}`}
 					target="_blank"
 					rel="noreferrer"
+					title={linkLabels[link.platform] ?? link.platform}
+					aria-label={linkLabels[link.platform] ?? link.platform}
 				>
 					<Icon icon={getPlatfromIcon(link.platform)} color={'var(--accent-text)'} />
 				</a>

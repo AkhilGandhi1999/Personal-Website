@@ -297,10 +297,83 @@ const MY_SKILLS = [
 		logo: Assets.Linux,
 		name: 'Linux'
 	}),
-	
+	s({
+		slug: 'terraform',
+		color: 'purple',
+		description: '',
+		logo: Assets.Terraform,
+		name: 'Terraform'
+	}),
+	s({
+		slug: 'argocd',
+		color: 'orange',
+		description: '',
+		logo: Assets.ArgoCD,
+		name: 'ArgoCD'
+	}),
+	s({
+		slug: 'helm',
+		color: 'blue',
+		description: '',
+		logo: Assets.Helm,
+		name: 'Helm'
+	}),
+	s({
+		slug: 'istio',
+		color: 'blue',
+		description: '',
+		logo: Assets.Istio,
+		name: 'Istio'
+	}),
+	s({
+		slug: 'prometheus',
+		color: 'orange',
+		description: '',
+		logo: Assets.Prometheus,
+		name: 'Prometheus'
+	}),
+	s({
+		slug: 'grafana',
+		color: 'orange',
+		description: '',
+		logo: Assets.Grafana,
+		name: 'Grafana'
+	}),
+	s({
+		slug: 'splunk',
+		color: 'green',
+		description: '',
+		logo: Assets.Splunk,
+		name: 'Splunk'
+	}),
+	s({
+		slug: 'github-actions',
+		color: 'blue',
+		description: '',
+		logo: Assets.GitHubActions,
+		name: 'GitHub Actions'
+	}),
+	s({
+		slug: 'packer',
+		color: 'blue',
+		description: '',
+		logo: Assets.Packer,
+		name: 'Packer'
+	}),
+	s({
+		slug: 'bash',
+		color: 'grey',
+		description: '',
+		logo: Assets.Bash,
+		name: 'Bash'
+	}),
 ];
 
 export default MY_SKILLS;
 
 export const getSkills = (...slugs: Array<string>): Array<Skill> =>
 	MY_SKILLS.filter((it) => slugs.includes(it.slug));
+
+// Like getSkills, but keeps the order the slugs are given in (used for the Home carousel).
+export const pickSkills = (...slugs: Array<string>): Array<Skill> =>
+	slugs.flatMap((slug) => MY_SKILLS.filter((it) => it.slug === slug));

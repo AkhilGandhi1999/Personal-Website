@@ -36,11 +36,11 @@ const MY_EXPERIENCES: Array<Experience> = [
 		company: 'Charter Communications (Current-Active-Position)',
 		description: sre_charter_data,
 		contract: ContractType.FullTime,
-		type: 'Systems Engineer I',
+		type: 'Site Reliability Engineering',
 		location: 'Greenwood Village, CO, USA',
 		period: { from: new Date(2024, 6), to: new Date() },
 		skills: getSkills('python', 'datadog', 'aws', 'docker', 'kubernetes', 'ansible', 'gitlab', 'github', 'git', 'jenkins'),
-		name: 'Systems Engineer I',
+		name: 'Site Reliability Engineer',
 		color: '#ffffff',
 		links: [],
 		logo: Assets.Charter

@@ -9,6 +9,16 @@ const a = (light: string, dark?: string): Asset =>
 	dark ? { dark: img(dark), light: img(light) } : img(light);
 
 const Assets = {
+	Terraform: a('terraform.svg'),
+	ArgoCD: a('argocd.svg'),
+	Helm: a('helm.svg'),
+	Istio: a('istio.svg'),
+	Prometheus: a('prometheus.svg'),
+	Grafana: a('grafana.svg'),
+	Splunk: a('splunk.svg'),
+	GitHubActions: a('githubactions.svg'),
+	Packer: a('packer.svg'),
+	Bash: a('bash.svg'),
 	Profile1: a('profile1.jpeg'),
 	AWS: a('aws.png'),
 	Django: a('django.svg'),
