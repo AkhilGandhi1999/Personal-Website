@@ -2,7 +2,13 @@
 	import { base } from '$app/paths';
 	import CommonPage from '$lib/components/CommonPage.svelte';
 	import { getAssetURL } from '$lib/data/assets';
-	import { TOOLBOX, certsFor, usedAt } from '$lib/expertise';
+	import {
+		PRACTICES,
+		TOOLBOX,
+		certsFor,
+		evidenceForPractice,
+		usedAt
+	} from '$lib/expertise';
 	import { SKILLS } from '$lib/params';
 	import MY_SKILLS from '$lib/skills.params';
 
@@ -12,9 +18,54 @@
 		const skill = slug ? MY_SKILLS.find((s) => s.slug === slug) : undefined;
 		return skill ? getAssetURL(skill.logo) : undefined;
 	};
+
+	const findSkill = (slug: string) => MY_SKILLS.find((s) => s.slug === slug);
 </script>
 
 <CommonPage {title}>
+	<section class="practices" aria-labelledby="practices-title">
+		<h2 id="practices-title" class="section-title">What I do</h2>
+		<div class="practice-grid">
+			{#each PRACTICES as practice}
+				{@const examples = evidenceForPractice(practice.id)}
+				<article class="practice-card">
+					<h3 class="practice-name">{practice.name}</h3>
+					<p class="practice-summary">{practice.summary}</p>
+					{#if practice.tools.length}
+						<ul class="practice-tools" aria-label="Main tools">
+							{#each practice.tools as tool}
+								{@const skill = findSkill(tool)}
+								<li>
+									{#if skill}
+										<a class="tool-chip" href={`${base}/skills/${skill.slug}`}>
+											<img src={getAssetURL(skill.logo)} alt="" />
+											{skill.name}
+										</a>
+									{:else}
+										<span class="tool-chip tool-chip-plain">{tool}</span>
+									{/if}
+								</li>
+							{/each}
+						</ul>
+					{/if}
+					{#if examples.length}
+						<details class="practice-examples">
+							<summary>{examples.length} example{examples.length > 1 ? 's' : ''} from my work</summary>
+							<ul>
+								{#each examples as ex}
+									<li>
+										<span class="example-source">{ex.source}</span>
+										{ex.text}
+									</li>
+								{/each}
+							</ul>
+						</details>
+					{/if}
+				</article>
+			{/each}
+		</div>
+	</section>
+
 	<section class="toolbox" aria-labelledby="toolbox-title">
 		<h2 id="toolbox-title" class="section-title">Toolbox</h2>
 		<p class="section-lead">
@@ -74,6 +125,116 @@
 </CommonPage>
 
 <style lang="scss">
+	.practices {
+		margin-bottom: 30px;
+	}
+
+	.practice-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 20px;
+		margin-top: 12px;
+
+		@media (max-width: 1200px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@media (max-width: 700px) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	.practice-card {
+		border: 1px solid var(--border);
+		border-radius: 12px;
+		padding: 18px 20px;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		align-self: start;
+	}
+
+	.practice-name {
+		font-size: 1.1em;
+		font-weight: 600;
+	}
+
+	.practice-summary {
+		color: var(--tertiary-text);
+		font-weight: 300;
+		line-height: 1.5;
+	}
+
+	.practice-tools {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px;
+	}
+
+	.tool-chip {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		border: 1px solid var(--border);
+		border-radius: 999px;
+		padding: 2px 10px 2px 6px;
+		font-size: 0.85em;
+		color: var(--secondary-text);
+		text-decoration: none;
+
+		& img {
+			width: 16px;
+			height: 16px;
+			object-fit: contain;
+		}
+
+		&:hover {
+			background-color: var(--main-hover);
+		}
+	}
+
+	.tool-chip-plain {
+		padding-left: 10px;
+
+		&:hover {
+			background-color: transparent;
+		}
+	}
+
+	.practice-examples {
+		font-size: 0.9em;
+
+		& summary {
+			cursor: pointer;
+			color: var(--secondary-text);
+			font-weight: 500;
+		}
+
+		& ul {
+			margin: 10px 0 0;
+			padding-left: 18px;
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			color: var(--tertiary-text);
+			font-weight: 300;
+			line-height: 1.5;
+		}
+	}
+
+	.example-source {
+		display: inline-block;
+		font-size: 0.8em;
+		font-weight: 500;
+		border: 1px solid var(--border);
+		border-radius: 999px;
+		padding: 0 8px;
+		margin-right: 6px;
+		color: var(--secondary-text);
+	}
+
 	.section-title {
 		font-size: 1.5em;
 		font-weight: 600;
