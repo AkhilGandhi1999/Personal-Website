@@ -1,4 +1,4 @@
-import { Icons } from '.';
+import { Icons } from './enums';
 import type { SocialMedia } from './types';
 
 export const countMonths = (from: Date, to: Date = new Date()): number => {
