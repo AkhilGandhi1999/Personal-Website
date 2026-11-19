@@ -26,7 +26,7 @@
 	const period = `${from} - ${to} · ${months} month${months > 1 ? 's' : ''}`;
 </script>
 
-<Card id={experience.slug} margin="0px 0px 20px 0px" tiltDegree={2}>
+<Card id={experience.slug} color={experience.color} margin="0px 0px 20px 0px" tiltDegree={2}>
 	<div class="experience">
 		<CardLogo src={getAssetURL(experience.logo)} alt={experience.company} size={75} />
 		<div class="experience-data">

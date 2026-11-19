@@ -82,7 +82,6 @@ export const HOME: HomePageParams = {
 		'splunk',
 		// CI/CD & automation
 		'github-actions',
-		'jenkins',
 		'ansible',
 		'packer',
 		// Cloud, OS & languages

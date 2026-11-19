@@ -5,7 +5,7 @@
 import MY_EXPERIENCES from './experiences.params';
 import MY_PROJECTS from './projects.params';
 import MY_SKILLS from './skills.params';
-import type { Bullet, PracticeId, Skill } from './types';
+import type { Bullet, PracticeId, Project, Skill } from './types';
 
 // ---------------------------------------------------------------------------
 // Practice areas ("What I do")
@@ -140,7 +140,6 @@ export const TOOLBOX: Array<ToolboxGroup> = [
 			{ label: 'Istio', skill: 'istio' },
 			{ label: 'Docker', skill: 'docker' },
 			{ label: 'GitHub Actions', skill: 'github-actions' },
-			{ label: 'Jenkins', skill: 'jenkins' },
 			{ label: 'Ansible', skill: 'ansible' },
 			{ label: 'Packer', skill: 'packer' }
 		]
@@ -212,7 +211,6 @@ const TOOL_PATTERNS: Record<string, RegExp> = {
 	istio: /\bIstio\b/,
 	docker: /\bDocker/,
 	'github-actions': /\bGitHub Actions\b/,
-	jenkins: /\bJenkins\b/,
 	ansible: /\bAnsible\b/,
 	packer: /\bPacker\b/,
 	aws: /\bAWS\b|\bS3\b|\bEKS\b/,
@@ -237,6 +235,7 @@ const TOOL_PATTERNS: Record<string, RegExp> = {
 	quasar: /\bQuasar\b/,
 	jest: /\bJest\b/,
 	nginx: /\bNginx\b/,
+	flask: /\bFlask\b/,
 	bigpanda: /\bBigPanda\b/,
 	mcp: /\bMCP\b/,
 	'agentic-cli': /\bagentic CLI\b/i
@@ -372,4 +371,33 @@ export const experienceTools = () => {
 		.sort((a, b) => b[1] - a[1])
 		.map(([t, count]) => ({ skill: MY_SKILLS.find((s) => s.slug === t), count }))
 		.filter((x): x is { skill: Skill; count: number } => !!x.skill);
+};
+
+/** Count tools across some bullets, most-mentioned first (ties keep résumé order). */
+const rankTools = (bullets: Array<Bullet>) => {
+	const counts = new Map<string, number>();
+	for (const b of bullets) for (const t of toolsIn(b)) counts.set(t, (counts.get(t) ?? 0) + 1);
+	return [...counts.entries()]
+		.sort((a, b) => b[1] - a[1])
+		.map(([t, count]) => ({ skill: MY_SKILLS.find((s) => s.slug === t), count }))
+		.filter((x): x is { skill: Skill; count: number } => !!x.skill);
+};
+
+/** A project's text as bullets: its résumé bullets, or else its older description. */
+export const projectBullets = (p: Project): Array<Bullet> =>
+	p.bullets?.length ? p.bullets : p.description ? [{ text: p.description, practices: [] }] : [];
+
+/** Tools a project card shows: named in its text, or (if none are) its tagged skills. */
+export const projectTools = (p: Project): Array<Skill> => {
+	const found = rankTools(projectBullets(p)).map((x) => x.skill);
+	return found.length ? found : p.skills;
+};
+
+/** Filter chips for the Projects page: every tool any project card shows, with how many projects. */
+export const projectFilterTools = (projects: Array<Project>) => {
+	const counts = new Map<string, { skill: Skill; count: number }>();
+	for (const p of projects)
+		for (const s of projectTools(p))
+			counts.set(s.slug, { skill: s, count: (counts.get(s.slug)?.count ?? 0) + 1 });
+	return [...counts.values()].sort((a, b) => b.count - a.count);
 };

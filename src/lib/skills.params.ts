@@ -87,13 +87,6 @@ const MY_SKILLS = [
 		name: 'GCP'
 	}),
 	s({
-		slug: 'jenkins',
-		color: 'red',
-		description:"",
-		logo: Assets.Jenkins,
-		name: 'Jenkins'
-	}),
-	s({
 		slug: 'ansible',
 		color: 'red',
 		description:"",

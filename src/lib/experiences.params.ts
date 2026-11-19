@@ -14,7 +14,7 @@ const MY_EXPERIENCES: Array<Experience> = [
 		// Starts Nov 30, 2026; no end date = "Present".
 		period: { from: new Date(2026, 10, 30) },
 		bullets: [],
-		color: '#ffffff',
+		color: '#E60023', // logo colour, used for the card glow
 		links: [],
 		logo: Assets.Pinterest
 	},
@@ -69,7 +69,7 @@ const MY_EXPERIENCES: Array<Experience> = [
 		period: { from: new Date(2024, 5), to: new Date(2026, 10, 20) },
 		// Official title — keep matching employer records (linked from LinkedIn).
 		name: 'Systems Engineer I',
-		color: '#ffffff',
+		color: '#1b619a', // logo colour, used for the card glow
 		links: [],
 		logo: Assets.Charter
 	},
@@ -93,7 +93,7 @@ const MY_EXPERIENCES: Array<Experience> = [
 		location: 'Greenwood Village, CO',
 		period: { from: new Date(2023, 5), to: new Date(2023, 7) },
 		name: 'Associate Systems Engineer Intern',
-		color: '#ffffff',
+		color: '#1b619a', // logo colour, used for the card glow
 		links: [],
 		logo: Assets.Charter
 	}, 
@@ -122,7 +122,7 @@ const MY_EXPERIENCES: Array<Experience> = [
 		period: { from: new Date(2021, 6), to: new Date(2022, 6) },
 		// Official title — keep matching employer records.
 		name: 'Associate Software Engineer',
-		color: '#ffffff',
+		color: '#ffffff', // logo colour, used for the card glow
 		links: [],
 		logo: Assets.Nice
 	}
