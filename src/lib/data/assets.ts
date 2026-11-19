@@ -41,6 +41,7 @@ const Assets = {
 	PostgreSQL: a('postgres.png'),
 	Redis: a('redis.svg'),
 	Jest: a('jest.png'),
+	Android: a('android.jpeg'),
 	Charter: a('charter.png'),
 	// Pinterest logo from Simple Icons (CC0), simple-icons@13.21.0, brand red.
 	Pinterest: a('pinterest.svg'),
