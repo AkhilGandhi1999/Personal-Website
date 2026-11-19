@@ -14,6 +14,8 @@ export interface Practice {
 	id: PracticeId;
 	name: string;
 	summary: string;
+	/** Key tools, taken from the summary/bullets. Skill slugs become links; anything else is plain text. */
+	tools: Array<string>;
 }
 
 export const PRACTICES: Array<Practice> = [
@@ -21,37 +23,43 @@ export const PRACTICES: Array<Practice> = [
 		id: 'k8s-platform',
 		name: 'Kubernetes & platform',
 		summary:
-			'10+ multi-AZ EKS clusters held to a 99.99% availability target; Istio service mesh; reusable Terraform modules.'
+			'10+ multi-AZ EKS clusters held to a 99.99% availability target; Istio service mesh; reusable Terraform modules.',
+		tools: ['kubernetes', 'istio', 'terraform', 'helm', 'aws']
 	},
 	{
 		id: 'release',
 		name: 'Release engineering',
 		summary:
-			'GitOps releases on ArgoCD and Argo Rollouts with blue-green and canary: biweekly zero-downtime, sub-30-second rollbacks.'
+			'GitOps releases on ArgoCD and Argo Rollouts with blue-green and canary: biweekly zero-downtime, sub-30-second rollbacks.',
+		tools: ['argocd', 'kubernetes', 'helm', 'datadog', 'github-actions']
 	},
 	{
 		id: 'incident',
 		name: 'Incident response',
 		summary:
-			'P0/P1 incident lead in a 24/7 on-call rotation; runbooks and an incident-command playbook that cut MTTR 30%.'
+			'P0/P1 incident lead in a 24/7 on-call rotation; runbooks and an incident-command playbook that cut MTTR 30%.',
+		tools: ['BigPanda']
 	},
 	{
 		id: 'observability',
 		name: 'Observability',
 		summary:
-			'Datadog, Prometheus, Grafana and Splunk; automated alerting; MCP-connected observability workflows.'
+			'Datadog, Prometheus, Grafana and Splunk; automated alerting; MCP-connected observability workflows.',
+		tools: ['datadog', 'prometheus', 'grafana', 'splunk']
 	},
 	{
 		id: 'security-cost',
 		name: 'Security & cost',
 		summary:
-			'CVE remediation platform across ~30 AWS accounts; FinOps tagging enforcement that delivered 15% monthly savings.'
+			'CVE remediation platform across ~30 AWS accounts; FinOps tagging enforcement that delivered 15% monthly savings.',
+		tools: ['aws', 'django', 'python']
 	},
 	{
 		id: 'ai-ops',
 		name: 'AI in operations',
 		summary:
-			'Agentic CLI as incident scribe, MCP servers for observability, AI-assisted cost analysis.'
+			'Agentic CLI as incident scribe, MCP servers for observability, AI-assisted cost analysis.',
+		tools: ['MCP servers', 'Agentic CLI', 'datadog', 'aws']
 	}
 ];
 
