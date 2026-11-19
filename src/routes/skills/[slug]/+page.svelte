@@ -10,6 +10,7 @@
 	import { base } from '$app/paths';
 	import { getAssetURL } from '$lib/data/assets';
 	import {
+		TOOL_SUMMARIES,
 		certsFor,
 		evidenceForSkill,
 		practicesForSkill,
@@ -34,6 +35,7 @@
 				.filter((s): s is Skill => !!s)
 		: [];
 	$: entry = slug ? toolboxEntry(slug) : undefined;
+	$: summary = slug ? TOOL_SUMMARIES[slug] : undefined;
 
 	// Fallback for skills not yet covered by résumé bullets: the jobs/projects tagged with it.
 	type Tagged = { display: string; name: string; img: string; type: 'projects' | 'experience' };
@@ -72,6 +74,10 @@
 			</div>
 
 			<div class="skill-body px-4 md:px-10 py-6 w-full">
+				{#if summary}
+					<p class="skill-summary">{summary}</p>
+				{/if}
+
 				{#if entry || practices.length}
 					<div class="skill-meta">
 						{#if entry}
@@ -183,6 +189,13 @@
 		display: flex;
 		flex-direction: column;
 		gap: 18px;
+	}
+
+	.skill-summary {
+		font-size: 1.15em;
+		line-height: 1.6;
+		color: var(--secondary-text);
+		max-width: 75ch;
 	}
 
 	.skill-meta {
