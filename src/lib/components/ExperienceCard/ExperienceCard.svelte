@@ -7,9 +7,11 @@
 	import Chip from '../Chip/Chip.svelte';
 	import ChipIcon from '../Chip/ChipIcon.svelte';
 	import { getAssetURL } from '$lib/data/assets';
-	import { toolsForExperience } from '$lib/expertise';
+	import { toolsForExperience, toolsIn } from '$lib/expertise';
 
 	export let experience: Experience;
+	/** Tool picked in the filter row; matching bullets stand out, the rest fade. */
+	export let highlight: string | undefined = undefined;
 
 	const tools = toolsForExperience(experience.slug);
 
@@ -39,7 +41,7 @@
 			{#if experience.bullets?.length}
 				<ul class="experience-bullets">
 					{#each experience.bullets as bullet}
-						<li>{bullet.text}</li>
+						<li class:dim={highlight && !toolsIn(bullet).includes(highlight)}>{bullet.text}</li>
 					{/each}
 				</ul>
 			{/if}
@@ -114,6 +116,14 @@
 			gap: 8px;
 			line-height: 1.55;
 			max-width: 95ch;
+		}
+
+		&-bullets li {
+			transition: opacity 0.2s;
+		}
+
+		&-bullets li.dim {
+			opacity: 0.3;
 		}
 
 		&-skills {

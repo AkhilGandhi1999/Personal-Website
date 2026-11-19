@@ -249,7 +249,7 @@ export interface Evidence extends Bullet {
 	toolSlugs: Array<string>;
 }
 
-const toolsIn = (b: Bullet) => {
+export const toolsIn = (b: Bullet) => {
 	const found = Object.keys(TOOL_PATTERNS).filter((slug) => TOOL_PATTERNS[slug].test(b.text));
 	return [...new Set([...found, ...(b.tools ?? [])])];
 };
@@ -357,4 +357,15 @@ export const toolsForExperience = (slug: string): Array<Skill> => {
 		.sort((a, b) => b[1] - a[1])
 		.map(([t]) => MY_SKILLS.find((s) => s.slug === t))
 		.filter((s): s is Skill => !!s);
+};
+
+/** Every tool named in any Experience bullet, with how many bullets mention it (most first). */
+export const experienceTools = () => {
+	const counts = new Map<string, number>();
+	for (const e of EVIDENCE.filter((ev) => ev.href.startsWith('/experience#')))
+		for (const t of e.toolSlugs) counts.set(t, (counts.get(t) ?? 0) + 1);
+	return [...counts.entries()]
+		.sort((a, b) => b[1] - a[1])
+		.map(([t, count]) => ({ skill: MY_SKILLS.find((s) => s.slug === t), count }))
+		.filter((x): x is { skill: Skill; count: number } => !!x.skill);
 };

@@ -64,7 +64,7 @@
 				data,
 				icon: Icons.Job,
 				name: `${data.name} @ ${data.company}`,
-				to: `experience?q=${data.name}`
+				to: `experience#${data.slug}`
 			}))
 		);
 	}
