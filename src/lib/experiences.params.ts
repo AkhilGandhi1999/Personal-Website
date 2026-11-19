@@ -131,14 +131,15 @@ const MY_EXPERIENCES: Array<Experience> = [
 				practices: []
 			}
 		],
-		company: 'NICE Systems',
+		company: 'NICE Interactive Solutions',
 		description: nice_data,
 		contract: ContractType.FullTime,
 		type: 'Software Development',
 		location: 'Pune, MH, India',
 		period: { from: new Date(2021, 6), to: new Date(2022, 6) },
 		skills: getSkills('vuejs', 'html', 'js', 'css', 'sass', 'docker', 'aws'),
-		name: 'Associate Software Developer',
+		// Official title — keep matching employer records.
+		name: 'Associate Software Engineer',
 		color: '#ffffff',
 		links: [],
 		logo: Assets.Nice
