@@ -45,13 +45,17 @@
 
 		&:hover {
 			border-color: var(--border-hover);
+			/* Each icon's filter puts it on its own layer, so later icons painted over this
+			   label. Lift the hovered icon (and its label) above its neighbours. */
+			z-index: 10;
 
 			&:after {
 				content: attr(data-help);
 				display: inline-block;
 				position: absolute;
 				width: max-content;
-				background-color: var(--secondary);
+				background-color: var(--main);
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
 				padding: 5px 10px;
 				left: 10px;
 				top: calc(100% + 0px);
