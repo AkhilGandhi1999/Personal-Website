@@ -72,7 +72,9 @@ export interface Project extends Item {
 	skills: Array<Skill>;
 }
 
-export interface Experience extends Project {
+// Experience cards show résumé bullets, so the old free-text description is not needed.
+export interface Experience extends Omit<Project, 'description'> {
+	description?: string;
 	company: string;
 	location: string;
 	contract: ContractType;

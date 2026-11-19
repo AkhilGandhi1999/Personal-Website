@@ -2,26 +2,6 @@ import Assets from './data/assets';
 import { getSkills } from './skills.params';
 import { ContractType, type Experience } from './types';
 
-const sre_charter_data = "• Execute biweekly production deployments using blue-green methodology across 10+ production applications, ensuring zero-downtime deployments and maintaining system reliability. \n\
-• Manage and maintain public cloud clusters in AWS environment, leveraging EKS and Kubernetes for container orchestration and application deployment.\n\
-• Participate in on-call rotation providing 24/7 incident response and troubleshooting support for production environments.\n\
-• Spearheaded cross-functional initiative to develop comprehensive AWS resource tagging strategy, collaborating with FinOps and Security teams to optimize cost tracking and compliance monitoring.\n\
-• Monitor and maintain system performance using DataDog, ensuring optimal operation of cloud infrastructure and applications."
-
-const rule4_data = "• Integrated Vue.js into the existing Django application, enabling client-side rendering and significantly enhancing the application responsiveness and user experience. \n\
-• Developed a backend service in Go to aggregate chat data from Slack and meeting details from Google Calendar. Implemented Kafka for efficient message streaming, reducing server load by 30% and ensuring real-time data processing.\n\
-• Improved efficiency of time entry for the consultancy by suggesting timesheet entries based on aggregated data from Slack and Google Calendar, leading to more accurate billing and streamlined employee workflows."
-
-const nice_data = "• Migrated Actimize platform code-base from Angular to Vue, resulting in Single Page Application with 30% reduction in loading time.\n\
-• Fixed production defects, conducted thorough code reviews, and achieved 90% code coverage with Jest, resulting in efficient refactoring and fewer bugs in production.\n\
-• Managed development, unit testing, and documentation for in-house UI library built with Quasar, ensuring consistent UI/UX across products.\n\
-• Containerized Java(Gradle, Maven) and Python codebases, combined Kafka topics, and deployed on Kubernetes cluster using Helm charts. Conducted Vue training with 50+ attendees, equipping team with essential skills for ongoing product development."
-
-const charter_data ="• Automated Datadog alert configurations using shell and Python scripts, seamlessly integrating with CI/CD pipelines to reduce downtime by 15%. \n\
-• Designed and orchestrated a comprehensive CI/CD workflow for machine provisioning, including the installation and configuration of observability tools. \n\
-• Managed Kubernetes cluster deployments for a streaming service, ensuring optimal performance, high availability, and scalability to support a growing user base."
-
-
 const MY_EXPERIENCES: Array<Experience> = [
 	{
 		slug: 'systems-fulltime',
@@ -67,7 +47,6 @@ const MY_EXPERIENCES: Array<Experience> = [
 			}
 		],
 		company: 'Charter Communications (Current-Active-Position)',
-		description: sre_charter_data,
 		contract: ContractType.FullTime,
 		type: 'Systems Engineer I',
 		location: 'Greenwood Village, CO, USA',
@@ -94,7 +73,6 @@ const MY_EXPERIENCES: Array<Experience> = [
 			}
 		],
 		company: 'Charter Communications',
-		description: charter_data,
 		contract: ContractType.Internship,
 		type: 'Dev Ops',
 		location: 'Greenwood Village, CO, USA',
@@ -124,7 +102,6 @@ const MY_EXPERIENCES: Array<Experience> = [
 			}
 		],
 		company: 'NICE Interactive Solutions',
-		description: nice_data,
 		contract: ContractType.FullTime,
 		type: 'Software Development',
 		location: 'Pune, MH, India',

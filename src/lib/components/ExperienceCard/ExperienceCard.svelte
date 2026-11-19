@@ -33,7 +33,13 @@
 			<span class="experience-company-name">{experience.company}</span>
 			<div class="experience-period">{period}</div>
 			<div class="experience-location">{experience.location}</div>
-			<div class="experience-description">{experience.description}</div>
+			{#if experience.bullets?.length}
+				<ul class="experience-bullets">
+					{#each experience.bullets as bullet}
+						<li>{bullet.text}</li>
+					{/each}
+				</ul>
+			{/if}
 			<div class="experience-skills">
 				{#each experience.skills as skill}
 					<ChipIcon logo={getAssetURL(skill.logo)} name={skill.name} />
@@ -96,16 +102,20 @@
 			margin-bottom: 15px;
 		}
 
-		&-description {
-			margin-bottom: 20px;
+		&-bullets {
+			margin: 0 0 20px;
+			padding-left: 18px;
+			list-style: disc;
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+			line-height: 1.55;
+			max-width: 95ch;
 		}
 
 		&-skills {
 			display: flex;
 			flex-wrap: wrap;
 		}
-	}
-	.experience-description{
-		white-space: pre-wrap; 
 	}
 </style>
