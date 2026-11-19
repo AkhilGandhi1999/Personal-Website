@@ -11,6 +11,8 @@
 	export let classes: Array<string> = [];
 	export let href: undefined | string = undefined;
 	export let bgImg: string | undefined = undefined;
+	/** Lets other pages link straight to this card with #id. */
+	export let id: string | undefined = undefined;
 
 	$: borderColor = changeColorOpacity(color, 0.5);
 	$: dropColor = changeColorOpacity(color, 0.15);
@@ -60,6 +62,7 @@
 <svelte:element
 	this={href ? 'a' : 'div'}
 	{href}
+	{id}
 	bind:this={el}
 	on:mousemove={onHover}
 	class={['card', ...classes].join(' ')}
@@ -72,6 +75,13 @@
 
 <style lang="scss">
 	.card {
+		scroll-margin-top: 90px;
+
+		&:target {
+			outline: 2px solid var(--accent-text);
+			outline-offset: 3px;
+		}
+
 		--border-color: transparent;
 		--bg-color: transparent;
 		--drop-color: transparent;

@@ -54,7 +54,7 @@
 							<ul>
 								{#each examples as ex}
 									<li>
-										<span class="example-source">{ex.source}</span>
+										<a class="example-source" href={`${base}${ex.href}`}>{ex.source}</a>
 										{ex.text}
 									</li>
 								{/each}
@@ -111,7 +111,7 @@
 									<p class="toolbox-item-used">
 										<span class="sr-only">Used at:</span>
 										{#each places as place}
-											<span class="used-chip">{place}</span>
+											<a class="used-chip" href={`${base}${place.href}`}>{place.source}</a>
 										{/each}
 									</p>
 								{/if}
@@ -233,6 +233,11 @@
 		padding: 0 8px;
 		margin-right: 6px;
 		color: var(--secondary-text);
+		text-decoration: none;
+
+		&:hover {
+			background-color: var(--main-hover);
+		}
 	}
 
 	.section-title {
@@ -331,10 +336,16 @@
 	}
 
 	.used-chip {
+		color: inherit;
+		text-decoration: none;
 		border: 1px solid var(--border);
 		border-radius: 999px;
 		padding: 1px 9px;
 		font-size: 0.95em;
+
+		&:hover {
+			background-color: var(--main-hover);
+		}
 	}
 
 	.cert-badge {
