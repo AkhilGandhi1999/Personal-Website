@@ -17,8 +17,8 @@ export const TITLE_SUFFIX = 'Akhil Gandhi';
 export const NavBar = {
 	home: 'Home',
 	personal: 'Projects',
-	career: 'Experiences',
-	resume: 'Resume',
+	career: 'Experience',
+	resume: 'Résumé',
 	skills: 'Expertise'
 };
 
@@ -99,7 +99,7 @@ export const PROJECTS: ProjectPageParams = {
 };
 
 export const EXPERIENCES: ExperiencePageParams = {
-	title: 'Experiences',
+	title: 'Experience',
 	items: MY_EXPERIENCES
 };
 
@@ -109,7 +109,7 @@ export const SKILLS: SkillsPageParams = {
 };
 
 export const RESUME: ResumePageParams = {
-	title: 'Resumé',
+	title: 'Résumé',
 	// File in static/. To update the résumé, replace that file (keep this name) and redeploy.
 	item: 'Akhil_Gandhi_Resume.pdf'
 };

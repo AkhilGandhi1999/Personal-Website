@@ -104,7 +104,9 @@ const MY_EXPERIENCES: Array<Experience> = [
 		bullets: [
 			{
 				text: "Containerized Java and Python codebases, consolidated Kafka topics, and deployed to Kubernetes with Helm charts.",
-				practices: ['k8s-platform']
+				practices: ['k8s-platform'],
+				// Containerized = Docker (confirmed by Akhil, Nov 19, 2026).
+				tools: ['docker']
 			},
 			{
 				text: "Migrated the Actimize platform from Angular to a Vue SPA (30% faster loads); drove 90% Jest coverage via code reviews and refactoring.",

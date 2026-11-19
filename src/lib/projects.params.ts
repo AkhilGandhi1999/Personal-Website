@@ -86,48 +86,6 @@ const MY_PROJECTS: Array<Project> = [
 		skills: getSkills('vuejs', 'docker', 'aws', 'quasar', 'flask'),
 		type: 'Website'
 	},
-	{
-		slug: 'web-stable-diffusion',
-		color: '#2496ED',
-		description:
-			'Developed a scalable web UI using Vue.js and Flask, containerized with Docker,\n\
-					for seamless integration across frontend, backend, and S3 Buckets. \n\
-					Programmed RESTful APIs and incorporated Vuex for efficient state management.\n\
-					Implemented Kubernetes on GCP with an ingress controller to enhance scalability and load balancing,\n\
-					ensuring robust performance and reliability.',
-		links: [
-			{
-				to: 'https://github.com/AkhilGandhi1999/Web-App-Stable-Diffusion-Frontend',
-				label: 'GitHub'
-			}
-		],
-		logo: Assets.Docker,
-		name: 'Web UI Stable Diffusion',
-		period: {
-			from: new Date(2022, 7),
-			to: new Date(2022, 11)
-		},
-		skills: getSkills('vuejs', 'docker', 'kubernetes', 'aws', 'gcp'),
-		type: 'Website'
-	},
-	{
-		slug: 'medicine-reminder',
-		color: '#3DDC84',
-		description:
-			'Developed an Android app for medicine tracking, featuring a graph library for\n\
-					comprehensive monitoring of medication schedules. Prototyped the user interface with Adobe XD and\n\
-					incorporated Google Maps to display nearby pharmacies and hospitals within a 1-mile radius,\n\
-					ensuring users have easy access to essential medical facilities.',
-		links: [{ to: 'https://github.com/AkhilGandhi1999/Medicine-Reminder-App', label: 'GitHub' }],
-		logo: Assets.Android,
-		name: 'Medicine Reminder',
-		period: {
-			from: new Date(2020, 0),
-			to: new Date(2020, 6)
-		},
-		skills: getSkills('java', 'aws'),
-		type: 'Android App'
-	}
 ];
 
 export default MY_PROJECTS;

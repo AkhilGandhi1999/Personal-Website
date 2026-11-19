@@ -4,6 +4,7 @@
 	import ToolFilter from '$lib/components/ToolFilter/ToolFilter.svelte';
 	import { experienceTools, toolsForExperience } from '$lib/expertise';
 	import { EXPERIENCES } from '$lib/params';
+	import EDUCATION from '$lib/education.params';
 
 	const { items, title } = EXPERIENCES;
 	const tools = experienceTools();
@@ -25,6 +26,19 @@
 			</div>
 		{/each}
 	</div>
+
+	<section class="education" aria-labelledby="education-title">
+		<h2 id="education-title" class="education-title">Education</h2>
+		<ul class="education-list">
+			{#each EDUCATION as e}
+				<li class="education-item">
+					<div class="education-school">{e.school}</div>
+					<div class="education-degree">{e.degree} · GPA {e.gpa}</div>
+					<div class="education-period">{e.period}</div>
+				</li>
+			{/each}
+		</ul>
+	</section>
 </CommonPage>
 
 <style lang="scss">
@@ -32,6 +46,47 @@
 		display: flex;
 		flex-direction: column;
 		margin-top: 10px;
+	}
+
+	.education-title {
+		font-size: 1.5em;
+		font-weight: 600;
+		margin-bottom: 12px;
+	}
+
+	.education-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 16px;
+
+		@media (max-width: 800px) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	.education-item {
+		border: 1px solid var(--border);
+		border-radius: 12px;
+		padding: 14px 18px;
+	}
+
+	.education-school {
+		font-weight: 600;
+		font-family: var(--title-f);
+	}
+
+	.education-degree {
+		color: var(--secondary-text);
+		margin-top: 4px;
+	}
+
+	.education-period {
+		color: var(--accent-text);
+		font-size: 0.9em;
+		margin-top: 4px;
 	}
 
 	.experience-wrap {
