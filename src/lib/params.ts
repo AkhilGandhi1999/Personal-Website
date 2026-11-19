@@ -12,7 +12,7 @@ import {
 } from './types';
 import { Icons } from './utils';
 
-export const TITLE_SUFFIX = 'My Journey';
+export const TITLE_SUFFIX = 'Akhil Gandhi';
 
 export const NavBar = {
 	home: 'Home',
@@ -32,6 +32,8 @@ export const getPlatfromIcon = (platform: Platform): Icons => {
 			return Icons.StackOverflow;
 		case Platform.Email:
 			return Icons.Email;
+		case Platform.Credly:
+			return Icons.Credly;
 	}
 };
 
@@ -39,7 +41,9 @@ export const HOME: HomePageParams = {
 	title: 'Home',
 	name: 'Akhil',
 	lastName: 'Gandhi',
-	description:"Welcome to my personal website! I'm Akhil Gandhi, a passionate software developer with a strong foundation in computer science and a knack for turning complex problems into elegant solutions.",
+	// Compact version of the summary in Akhil_Gandhi_Resume_Immigration.docx.
+	description:
+		'Systems Engineer focused on site reliability. I run production Kubernetes (EKS) with GitOps delivery, observability, and 24/7 incident response, and build the automation behind it in Python and Terraform. CKA, Terraform, and Google Cloud certified, and an early adopter of agentic AI in day-to-day operations.',
 	links: [
 		{	platform: Platform.GitHub, 
 			link: 'https://github.com/AkhilGandhi1999' 
@@ -51,6 +55,10 @@ export const HOME: HomePageParams = {
 		{
 			platform: Platform.StackOverflow,
 			link: 'https://stackoverflow.com/users/22501073/akhil-gandhi'
+		},
+		{
+			platform: Platform.Credly,
+			link: 'https://www.credly.com/users/ak-gandhi'
 		},
 		{
 			platform: Platform.Email,
