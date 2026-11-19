@@ -60,7 +60,7 @@ export interface Bullet {
 export interface Project extends Item {
 	/** Résumé bullets (source: Akhil_Gandhi_Resume_Immigration.docx). Used by the Expertise page. */
 	bullets?: Array<Bullet>;
-	/** Short label for "used at" chips, e.g. "Charter · SRE". */
+	/** Short label for "used at" chips, e.g. "Charter · Intern". */
 	short?: string;
 	links: Array<Link>;
 	color: string;

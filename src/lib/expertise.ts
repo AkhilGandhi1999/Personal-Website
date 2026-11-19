@@ -120,6 +120,8 @@ export interface ToolboxItem {
 	label: string;
 	skill?: string;
 	note?: string;
+	/** Image in static/images/ for items without a skill page (generic glyph where no official logo exists). */
+	logo?: string;
 }
 
 export interface ToolboxGroup {
@@ -162,7 +164,7 @@ export const TOOLBOX: Array<ToolboxGroup> = [
 			{ label: 'Grafana', skill: 'grafana' },
 			{ label: 'Datadog', skill: 'datadog' },
 			{ label: 'Splunk', skill: 'splunk' },
-			{ label: 'BigPanda', note: 'AIOps event correlation' }
+			{ label: 'BigPanda', note: 'AIOps event correlation', logo: 'glyph-alert.svg' }
 		]
 	},
 	{
@@ -170,18 +172,18 @@ export const TOOLBOX: Array<ToolboxGroup> = [
 		items: [
 			{ label: 'Python', skill: 'python' },
 			{ label: 'Django', skill: 'django' },
-			{ label: 'boto3' },
+			{ label: 'boto3', note: 'AWS SDK for Python', logo: 'glyph-sdk.svg' },
 			{ label: 'Go', skill: 'go' },
 			{ label: 'Bash', skill: 'bash' },
-			{ label: 'SQL' },
+			{ label: 'SQL', logo: 'glyph-sql.svg' },
 			{ label: 'JavaScript / TypeScript', skill: 'ts' }
 		]
 	},
 	{
 		name: 'AI Tooling',
 		items: [
-			{ label: 'MCP servers', note: 'Datadog, AWS, Webex' },
-			{ label: 'Agentic CLI workflows', note: 'Kiro' }
+			{ label: 'MCP servers', note: 'Datadog, AWS, Webex', logo: 'glyph-mcp.svg' },
+			{ label: 'Agentic CLI workflows', note: 'Kiro', logo: 'glyph-terminal.svg' }
 		]
 	},
 	{
@@ -191,8 +193,8 @@ export const TOOLBOX: Array<ToolboxGroup> = [
 			{ label: 'Redis', skill: 'redis' },
 			{ label: 'PostgreSQL', skill: 'postgres' },
 			{ label: 'MySQL', skill: 'mysql' },
-			{ label: 'gRPC' },
-			{ label: 'REST' }
+			{ label: 'gRPC', logo: 'glyph-api.svg' },
+			{ label: 'REST', logo: 'glyph-api.svg' }
 		]
 	}
 ];
@@ -236,7 +238,7 @@ const TOOL_PATTERNS: Record<string, RegExp> = {
 };
 
 export interface Evidence extends Bullet {
-	/** Short source label, e.g. "Charter · SRE". */
+	/** Short source label, e.g. "Charter · Intern". */
 	source: string;
 	/** Longer label, e.g. "Site Reliability Engineer @ Charter Communications". */
 	sourceLong: string;

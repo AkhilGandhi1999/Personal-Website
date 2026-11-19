@@ -79,7 +79,7 @@
 					<h3 class="toolbox-group-name">{group.name}</h3>
 					<ul class="toolbox-items">
 						{#each group.items as item}
-							{@const logo = logoFor(item.skill)}
+							{@const logo = item.logo ? `${base}/images/${item.logo}` : logoFor(item.skill)}
 							{@const places = item.skill ? usedAt(item.skill) : []}
 							{@const certs = item.skill ? certsFor(item.skill) : []}
 							<li class="toolbox-item">
@@ -247,20 +247,27 @@
 		max-width: 70ch;
 	}
 
+	/* Column layout so short groups stack under each other instead of leaving gaps. */
 	.toolbox-groups {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 20px;
+		column-count: 3;
+		column-gap: 20px;
 
-		@media (max-width: 900px) {
-			grid-template-columns: 1fr;
+		@media (max-width: 1200px) {
+			column-count: 2;
+		}
+		@media (max-width: 700px) {
+			column-count: 1;
 		}
 	}
 
 	.toolbox-group {
+		break-inside: avoid;
+		display: inline-block;
+		width: 100%;
+		margin-bottom: 20px;
 		border: 1px solid var(--border);
 		border-radius: 12px;
-		padding: 18px 20px;
+		padding: 16px 18px;
 	}
 
 	.toolbox-group-name {
@@ -276,7 +283,7 @@
 		padding: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 12px;
+		gap: 9px;
 	}
 
 	.toolbox-item-head {
