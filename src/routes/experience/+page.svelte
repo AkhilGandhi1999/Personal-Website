@@ -1,5 +1,7 @@
 <script lang="ts">
+	import Card from '$lib/components/Card/Card.svelte';
 	import CommonPage from '$lib/components/CommonPage.svelte';
+	import { getAssetURL } from '$lib/data/assets';
 	import ExperienceCard from '$lib/components/ExperienceCard/ExperienceCard.svelte';
 	import ToolFilter from '$lib/components/ToolFilter/ToolFilter.svelte';
 	import { experienceTools, toolsForExperience } from '$lib/expertise';
@@ -31,10 +33,17 @@
 		<h2 id="education-title" class="education-title">Education</h2>
 		<ul class="education-list">
 			{#each EDUCATION as e}
-				<li class="education-item">
-					<div class="education-school">{e.school}</div>
-					<div class="education-degree">{e.degree} · GPA {e.gpa}</div>
-					<div class="education-period">{e.period}</div>
+				<li>
+					<Card color={e.color} tiltDegree={3}>
+						<div class="education-item">
+							<img class="education-logo" class:round={e.round} src={getAssetURL(e.logo)} alt="" />
+							<div>
+								<div class="education-school">{e.school}</div>
+								<div class="education-degree">{e.degree} · GPA {e.gpa}</div>
+								<div class="education-period">{e.period}</div>
+							</div>
+						</div>
+					</Card>
 				</li>
 			{/each}
 		</ul>
@@ -67,10 +76,30 @@
 		}
 	}
 
+	.education-list > li {
+		display: flex;
+		flex-direction: column;
+
+		& > :global(.card) {
+			flex: 1;
+		}
+	}
+
 	.education-item {
-		border: 1px solid var(--border);
-		border-radius: 12px;
-		padding: 14px 18px;
+		display: flex;
+		align-items: center;
+		gap: 16px;
+	}
+
+	.education-logo {
+		width: 52px;
+		height: 52px;
+		object-fit: contain;
+		flex-shrink: 0;
+
+		&.round {
+			border-radius: 50%;
+		}
 	}
 
 	.education-school {

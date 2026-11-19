@@ -43,6 +43,9 @@ const Assets = {
 	Jest: a('jest.png'),
 	Android: a('android.jpeg'),
 	Charter: a('charter.png'),
+	// CU emblem cropped from the public-domain logo on Wikimedia Commons; PICT seal from pict.edu.
+	CUBoulder: a('cu-boulder.png'),
+	PICT: a('pict.jpg'),
 	// Pinterest logo from Simple Icons (CC0), simple-icons@13.21.0, brand red.
 	Pinterest: a('pinterest.svg'),
 	Nice: a('nice.png'),
