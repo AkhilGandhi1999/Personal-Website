@@ -39,7 +39,7 @@ export const PRACTICES: Array<Practice> = [
 		name: 'Incident response',
 		summary:
 			'P0/P1 incident lead in a 24/7 on-call rotation; runbooks and an incident-command playbook that cut MTTR 30%.',
-		tools: ['BigPanda']
+		tools: ['bigpanda']
 	},
 	{
 		id: 'observability',
@@ -60,7 +60,7 @@ export const PRACTICES: Array<Practice> = [
 		name: 'AI in operations',
 		summary:
 			'Agentic CLI as incident scribe, MCP servers for observability, AI-assisted cost analysis.',
-		tools: ['MCP servers', 'Agentic CLI', 'datadog', 'aws']
+		tools: ['mcp', 'agentic-cli', 'datadog', 'aws']
 	}
 ];
 
@@ -165,7 +165,7 @@ export const TOOLBOX: Array<ToolboxGroup> = [
 			{ label: 'Grafana', skill: 'grafana' },
 			{ label: 'Datadog', skill: 'datadog' },
 			{ label: 'Splunk', skill: 'splunk' },
-			{ label: 'BigPanda', note: 'AIOps event correlation', logo: 'glyph-alert.svg' }
+			{ label: 'BigPanda', skill: 'bigpanda', note: 'AIOps event correlation' }
 		]
 	},
 	{
@@ -183,8 +183,8 @@ export const TOOLBOX: Array<ToolboxGroup> = [
 	{
 		name: 'AI Tooling',
 		items: [
-			{ label: 'MCP servers', note: 'Datadog, AWS, Webex', logo: 'glyph-mcp.svg' },
-			{ label: 'Agentic CLI workflows', note: 'Kiro', logo: 'glyph-terminal.svg' }
+			{ label: 'MCP servers', skill: 'mcp', note: 'Datadog, AWS, Webex' },
+			{ label: 'Agentic CLI workflows', skill: 'agentic-cli', note: 'Kiro' }
 		]
 	},
 	{
@@ -235,7 +235,11 @@ const TOOL_PATTERNS: Record<string, RegExp> = {
 	java: /\bJava\b/,
 	vuejs: /\bVue\b/,
 	quasar: /\bQuasar\b/,
-	jest: /\bJest\b/
+	jest: /\bJest\b/,
+	nginx: /\bNginx\b/,
+	bigpanda: /\bBigPanda\b/,
+	mcp: /\bMCP\b/,
+	'agentic-cli': /\bagentic CLI\b/i
 };
 
 export interface Evidence extends Bullet {

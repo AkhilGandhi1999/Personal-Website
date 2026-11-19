@@ -240,6 +240,27 @@ const MY_SKILLS = [
 		logo: Assets.Bash,
 		name: 'Bash'
 	}),
+	s({
+		slug: 'bigpanda',
+		color: 'grey',
+		description: '',
+		logo: Assets.BigPanda,
+		name: 'BigPanda'
+	}),
+	s({
+		slug: 'mcp',
+		color: 'grey',
+		description: '',
+		logo: Assets.MCP,
+		name: 'MCP servers'
+	}),
+	s({
+		slug: 'agentic-cli',
+		color: 'grey',
+		description: '',
+		logo: Assets.AgenticCLI,
+		name: 'Agentic CLI'
+	}),
 ];
 
 export default MY_SKILLS;
