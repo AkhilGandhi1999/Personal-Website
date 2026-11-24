@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { DESCRIPTIONS } from '$lib/seo';
 	import Chip from '$lib/components/Chip/Chip.svelte';
 	import CommonPage from '$lib/components/CommonPage.svelte';
 
@@ -10,7 +11,7 @@
 	const resumeUrl = item ? `${base}/${item}` : '';
 </script>
 
-<CommonPage {title}>
+<CommonPage {title} description={DESCRIPTIONS.resume}>
 	<div class="resume">
 		{#if item}
 			<div class="resume-actions">

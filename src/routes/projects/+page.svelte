@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { DESCRIPTIONS } from '$lib/seo';
 	import CommonPage from '$lib/components/CommonPage.svelte';
 	import ProjectCard from '$lib/components/ProjectCard/ProjectCard.svelte';
 	import ToolFilter from '$lib/components/ToolFilter/ToolFilter.svelte';
@@ -15,7 +16,7 @@
 	$: matching = items.filter((p) => selected && uses(p)).length;
 </script>
 
-<CommonPage {title}>
+<CommonPage {title} description={DESCRIPTIONS.projects}>
 	<ToolFilter {tools} bind:selected {matching} noun="project" />
 
 	<div class="projects-list mt-5">

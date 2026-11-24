@@ -1,11 +1,11 @@
 <script lang="ts">
+	import TabTitle from '$lib/components/TabTitle.svelte';
+	import { DESCRIPTIONS } from '$lib/seo';
 	import Carrousel from '$lib/components/Carrousel/Carrousel.svelte';
 	import Icon from '$lib/components/Icon/Icon.svelte';
 	import MainTitle from '$lib/components/MainTitle/MainTitle.svelte';
-	import { TITLE_SUFFIX } from '$lib/params';
 	import { HOME, getPlatfromIcon } from '$lib/params';
 	import MY_SKILLS from '$lib/skills.params';
-	import { useTitle } from '$lib/utils';
 	import { isBlank } from '@riadh-adrani/utils';
 	import Assets from '../lib/data/assets';
 
@@ -28,11 +28,17 @@
 	};
 </script>
 
-<svelte:head>
-	<title>{useTitle(title, TITLE_SUFFIX)}</title>
-</svelte:head>
+<TabTitle
+	{title}
+	fullTitle="Akhil Gandhi | Site Reliability Engineer"
+	description={DESCRIPTIONS.home}
+/>
 <div class="home">
-	<img src={Assets.Profile1} class="h-[370px] w-[300px] ml-10 mr-10 rounded-full shadow-2xl shadow-slate-400" alt="" />
+	<img
+		src={Assets.Profile1}
+		class="h-[370px] w-[300px] ml-10 mr-10 rounded-full shadow-2xl shadow-slate-400"
+		alt=""
+	/>
 	<div class="home-section">
 		<MainTitle classes="!text-left">{name} {lastName},</MainTitle>
 		<p class="home-subtitle">{description}</p>

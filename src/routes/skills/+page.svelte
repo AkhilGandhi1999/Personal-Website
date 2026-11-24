@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { DESCRIPTIONS } from '$lib/seo';
 	import { base } from '$app/paths';
 	import Card from '$lib/components/Card/Card.svelte';
 	import CommonPage from '$lib/components/CommonPage.svelte';
@@ -35,7 +36,7 @@
 	};
 </script>
 
-<CommonPage {title}>
+<CommonPage {title} description={DESCRIPTIONS.expertise}>
 	<section class="practices" aria-labelledby="practices-title">
 		<h2 id="practices-title" class="section-title">What I do</h2>
 		<div class="practice-grid">

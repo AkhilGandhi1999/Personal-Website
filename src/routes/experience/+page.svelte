@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { DESCRIPTIONS } from '$lib/seo';
 	import Card from '$lib/components/Card/Card.svelte';
 	import CommonPage from '$lib/components/CommonPage.svelte';
 	import { getAssetURL } from '$lib/data/assets';
@@ -18,7 +19,7 @@
 	$: matching = items.filter((job) => selected && uses(job.slug)).length;
 </script>
 
-<CommonPage {title}>
+<CommonPage {title} description={DESCRIPTIONS.experience}>
 	<ToolFilter {tools} bind:selected {matching} noun="role" />
 
 	<div class="experiences">

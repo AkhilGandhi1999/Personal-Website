@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { toolDescription } from '$lib/seo';
 	import CardDivider from '$lib/components/Card/CardDivider.svelte';
 	import CardLogo from '$lib/components/Card/CardLogo.svelte';
 	import MainTitle from '$lib/components/MainTitle/MainTitle.svelte';
@@ -46,13 +47,13 @@
 					display: `${p.name} (${p.type})`,
 					slug: p.slug,
 					type: 'projects'
-				})),
+				}))
 		  ] as Array<Tagged>);
 
 	$: computedTitle = skill ? `${skill.name} - ${title}` : title;
 </script>
 
-<TabTitle title={computedTitle} />
+<TabTitle title={computedTitle} description={toolDescription(skill?.name ?? '', summary)} />
 
 <div class="pb-10 overflow-x-hidden">
 	{#if skill === undefined}
@@ -115,10 +116,8 @@
 					<ul class="evidence-list">
 						{#each evidence as ex}
 							<li>
-								<a
-									class="evidence-source"
-									href={`${base}${ex.href}`}
-									title={ex.sourceLong}>{ex.source}</a
+								<a class="evidence-source" href={`${base}${ex.href}`} title={ex.sourceLong}
+									>{ex.source}</a
 								>
 								{ex.text}
 							</li>
@@ -129,7 +128,9 @@
 						On my résumé's skills list. No résumé bullet mentions it yet.
 					</p>
 				{:else if tagged.length}
-					<p class="text-[var(--tertiary-text)] mb-3">Projects and roles tagged with {skill.name}:</p>
+					<p class="text-[var(--tertiary-text)] mb-3">
+						Projects and roles tagged with {skill.name}:
+					</p>
 					<div class="flex flex-row gap-2 flex-wrap">
 						{#each tagged as item}
 							<div
