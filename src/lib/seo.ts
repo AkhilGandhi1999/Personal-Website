@@ -4,6 +4,14 @@
 export const SITE_ORIGIN = 'https://akhilgandhi1999.github.io';
 export const SITE_NAME = 'Akhil Gandhi';
 
+/** Share image (static/og-image.png, made by scripts/make-og-image.py). */
+export const OG_IMAGE = {
+	file: 'og-image.png',
+	width: 1200,
+	height: 630,
+	alt: 'Akhil Gandhi, Site Reliability Engineer: kubectl describe card with photo'
+};
+
 export const DESCRIPTIONS = {
 	home: 'Akhil Gandhi, Site Reliability Engineer: production Kubernetes (EKS), GitOps delivery, observability, and 24/7 incident response, with automation in Python and Terraform. CKA, Terraform, and Google Cloud certified.',
 	expertise:
