@@ -62,9 +62,19 @@
 	--gh-badge: #238636;
 	--gh-badge-hover: #2ea043;
 
-	/* Light-mode accents (GitHub Light), used until the full light theme in C6. */
+	/* GitHub Light palette, for light mode. */
+	--ghl-bg: #ffffff;
+	--ghl-surface: #f6f8fa;
+	--ghl-surface-2: #eaeef2;
+	--ghl-surface-3: #d0d7de;
+	--ghl-surface-4: #afb8c1;
+	--ghl-text: #1f2328;
+	--ghl-text-2: #24292f;
+	--ghl-text-3: #424a53;
+	--ghl-muted: #59636e;
 	--ghl-blue: #0969da;
 	--ghl-green: #1a7f37;
+	--ghl-bg-60: rgba(255, 255, 255, 0.6);
 
 	// fonts
 	--text-f: 'Inter';
@@ -122,38 +132,39 @@
 :root[data-theme='light'] {
 	color-scheme: light;
 
-	--main: var(--light-0);
-	--main-hover: var(--light-1);
-	--secondary: var(--light-1);
-	--secondary-hover: var(--light-2);
-	--tertiary: var(--light-2);
-	--tertiary-hover: var(--light-3);
-	--accent: var(--light-3);
-	--accent-hover: var(--light-4);
+	--main: var(--ghl-bg);
+	--main-hover: var(--ghl-surface);
+	--secondary: var(--ghl-surface);
+	--secondary-hover: var(--ghl-surface-2);
+	--tertiary: var(--ghl-surface-2);
+	--tertiary-hover: var(--ghl-surface-3);
+	--accent: var(--ghl-surface-3);
+	--accent-hover: var(--ghl-surface-4);
 
-	--main-text: var(--dark-0);
-	--main-text-hover: var(--dark-1);
-	--secondary-text: var(--dark-1);
-	--secondary-text-hover: var(--dark-2);
-	--tertiary-text: var(--dark-2);
-	--tertiary-text-hover: var(--dark-3);
-	--accent-text: var(--dark-3);
-	--accent-text-hover: var(--dark-4);
+	--main-text: var(--ghl-text);
+	--main-text-hover: #000000;
+	--secondary-text: var(--ghl-text-2);
+	--secondary-text-hover: var(--ghl-text);
+	--tertiary-text: var(--ghl-text-3);
+	--tertiary-text-hover: var(--ghl-text-2);
+	--accent-text: var(--ghl-muted);
+	--accent-text-hover: var(--ghl-text-3);
 
-	--border: var(--light-1);
-	--border-hover: var(--dark-8);
+	--border: var(--ghl-surface-3);
+	--border-hover: var(--ghl-blue);
 
-	--main-60: var(--light-0-60);
+	--main-60: var(--ghl-bg-60);
+
+	/* Accents: page-title gradient and section headings. */
+	--accent-blue: var(--ghl-blue);
+	--accent-green: var(--ghl-green);
 
 	--code-keyword: var(--code-keyword-light);
 	--code-string: var(--code-string-light);
 	--code-function: var(--code-function-light);
 	--code-constant: var(--code-constant-light);
 	--code-operator: var(--code-operator-light);
-	--link: var(--link-dark);
-
-	--accent-blue: var(--ghl-blue);
-	--accent-green: var(--ghl-green);
+	--link: var(--ghl-blue);
 }
 
 /* Paint the page edge too, so overscroll bounce on phones shows the theme, not white. */
