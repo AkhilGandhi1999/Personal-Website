@@ -1,7 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 	<head>
 		<meta charset="utf-8" />
+		<!-- Dark by default. If the visitor picked light before, switch before the first paint
+		     (same storage key as src/lib/stores/theme.ts) so there's no flash. -->
+		<script>
+			try {
+				if (localStorage.getItem('@riadh-adrani-theme') === 'false')
+					document.documentElement.setAttribute('data-theme', 'light');
+			} catch (e) {}
+		</script>
 		<!-- Site icons: ">_" prompt in GitHub Dark (made by scripts/make-favicon.py). -->
 		<link rel="icon" href="/Personal-Website/favicon.ico" sizes="48x48" />
 		<link rel="icon" href="/Personal-Website/favicon.svg" type="image/svg+xml" />
@@ -17,17 +25,17 @@
 			rel="stylesheet"
 		/>
 		
-		<link rel="modulepreload" href="/Personal-Website/_app/immutable/entry/start.4Nb6LdcN.js">
-		<link rel="modulepreload" href="/Personal-Website/_app/immutable/chunks/entry.DjzODaft.js">
+		<link rel="modulepreload" href="/Personal-Website/_app/immutable/entry/start.BTahs-iU.js">
+		<link rel="modulepreload" href="/Personal-Website/_app/immutable/chunks/entry.Ctoojekr.js">
 		<link rel="modulepreload" href="/Personal-Website/_app/immutable/chunks/scheduler.D-lzC586.js">
-		<link rel="modulepreload" href="/Personal-Website/_app/immutable/entry/app.DtTSWxSR.js">
+		<link rel="modulepreload" href="/Personal-Website/_app/immutable/entry/app.BRlQ8Bgc.js">
 		<link rel="modulepreload" href="/Personal-Website/_app/immutable/chunks/index.Bq2gOnWC.js">
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">
 			<script>
 				{
-					__sveltekit_4l6u6w = {
+					__sveltekit_rajxau = {
 						base: "/Personal-Website",
 						assets: "/Personal-Website"
 					};
@@ -35,8 +43,8 @@
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("/Personal-Website/_app/immutable/entry/start.4Nb6LdcN.js"),
-						import("/Personal-Website/_app/immutable/entry/app.DtTSWxSR.js")
+						import("/Personal-Website/_app/immutable/entry/start.BTahs-iU.js"),
+						import("/Personal-Website/_app/immutable/entry/app.BRlQ8Bgc.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element);
 					});
