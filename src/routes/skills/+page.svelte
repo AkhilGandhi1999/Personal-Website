@@ -7,8 +7,35 @@
 	import { PRACTICES, TOOLBOX, certsFor, evidenceForPractice, usedAt } from '$lib/expertise';
 	import { SKILLS } from '$lib/params';
 	import MY_SKILLS from '$lib/skills.params';
+	import { onMount } from 'svelte';
 
 	const { title } = SKILLS;
+
+	// Make the "What I do" cards the same height: measure the tallest closed card and give
+	// every card that minimum. Re-measured on resize and once fonts load. An opened
+	// "examples" list only grows its own card. Single column (phones): natural heights.
+	let grid: HTMLElement;
+	const equalize = () => {
+		if (!grid) return;
+		const cards = [...grid.children] as HTMLElement[];
+		cards.forEach((c) => (c.style.minHeight = ''));
+		const columns = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
+		if (columns < 2) return;
+		const closed = cards.filter((c) => !c.querySelector('details[open]'));
+		const tallest = Math.max(...closed.map((c) => c.getBoundingClientRect().height));
+		cards.forEach((c) => (c.style.minHeight = `${Math.ceil(tallest)}px`));
+	};
+	onMount(() => {
+		equalize();
+		document.fonts?.ready.then(equalize);
+		const observer = new ResizeObserver(() => equalize());
+		observer.observe(grid);
+		window.addEventListener('resize', equalize);
+		return () => {
+			observer.disconnect();
+			window.removeEventListener('resize', equalize);
+		};
+	});
 
 	const logoFor = (slug?: string) => {
 		const skill = slug ? MY_SKILLS.find((s) => s.slug === slug) : undefined;
@@ -39,7 +66,7 @@
 <CommonPage {title} description={DESCRIPTIONS.expertise}>
 	<section class="practices" aria-labelledby="practices-title">
 		<h2 id="practices-title" class="section-title">What I do</h2>
-		<div class="practice-grid">
+		<div class="practice-grid" bind:this={grid}>
 			{#each PRACTICES as practice}
 				{@const examples = evidenceForPractice(practice.id)}
 				<Card id={practice.id} color={PRACTICE_COLORS[practice.id]} tiltDegree={3}>
@@ -169,6 +196,12 @@
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
+		flex: 1;
+	}
+
+	/* Keep the "N examples" toggle at the bottom so equal-height cards line up. */
+	.practice-card > :global(.practice-examples) {
+		margin-top: auto;
 	}
 
 	.practice-grid > :global(.card) {
