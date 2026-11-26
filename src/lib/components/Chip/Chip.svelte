@@ -5,7 +5,8 @@
 
 	export let label = '';
 	export let active = false;
-	export let hoverable = true;
+	/** Static label by default; nothing uses Chip as a button. */
+	export let hoverable = false;
 	export let size = 'auto';
 
 	onMount(() => {
@@ -13,19 +14,15 @@
 	});
 </script>
 
-<p
+<span
 	bind:this={el}
 	class="chip"
 	class:chip-active={active}
 	class:chip-hoverable={hoverable}
 	data-size={size}
-	on:click
-	on:keydown
-	on:keypress
-	on:keyup
 >
 	{label}
-</p>
+</span>
 
 <style lang="scss">
 	.chip {
@@ -36,7 +33,6 @@
 		display: inline-block;
 		border: 1px solid var(--border);
 		border-radius: 20px;
-		cursor: pointer;
 		font-weight: 200;
 		font-size: 0.95em;
 		transition-duration: 150ms;

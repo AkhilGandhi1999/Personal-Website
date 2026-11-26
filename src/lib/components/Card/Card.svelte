@@ -63,6 +63,9 @@
 	});
 </script>
 
+<!-- The mousemove handler only drives the decorative tilt and glow; there is nothing to
+     activate, so it needs no keyboard equivalent or role. -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <svelte:element
 	this={href ? 'a' : 'div'}
 	{href}
