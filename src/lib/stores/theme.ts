@@ -9,7 +9,8 @@ const updateLocalStorage = (value: boolean) => {
 	}
 };
 
-export const theme = writable<boolean>(false);
+// true = dark. The site is dark by default; a visitor's own toggle choice is remembered.
+export const theme = writable<boolean>(true);
 
 export const toggleTheme = (value?: boolean) =>
 	theme.update((it) => {
@@ -25,12 +26,6 @@ export const toggleTheme = (value?: boolean) =>
 export const onHydrated = () => {
 	const fromStore = localStorage.getItem(key);
 
-	if (!fromStore) {
-		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-			// dark mode
-			toggleTheme(true);
-		}
-	} else {
-		toggleTheme(JSON.parse(fromStore));
-	}
+	// No saved choice: dark. Saved choice (from the toggle): use it.
+	toggleTheme(fromStore ? JSON.parse(fromStore) : true);
 };
