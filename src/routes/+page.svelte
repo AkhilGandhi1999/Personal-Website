@@ -9,7 +9,7 @@
 	import { HOME, getPlatfromIcon } from '$lib/params';
 	import MY_SKILLS from '$lib/skills.params';
 	import { isBlank } from '@riadh-adrani/utils';
-	import Assets from '../lib/data/assets';
+	import Assets, { getAssetURL } from '../lib/data/assets';
 	import { onMount } from 'svelte';
 
 	const { description, lastName, links, name, title, skills, role, roles, pills } = HOME;
@@ -89,7 +89,7 @@
 <div class="home">
 	<!-- Photo in a blue-to-green ring, matching the share image. -->
 	<div class="home-photo-ring">
-		<img src={Assets.Profile1} class="home-photo" alt="Akhil Gandhi" />
+		<img src={getAssetURL(Assets.Profile1)} class="home-photo" alt="Akhil Gandhi" />
 	</div>
 
 	<div class="home-section">

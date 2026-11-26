@@ -33,6 +33,8 @@ export const getPlatfromIcon = (platform: Platform): Icons => {
 			return Icons.Email;
 		case Platform.Credly:
 			return Icons.Credly;
+		default:
+			return Icons.Link;
 	}
 };
 
