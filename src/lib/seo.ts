@@ -28,3 +28,59 @@ export const toolDescription = (name: string, summary?: string) =>
 	summary
 		? `How Akhil Gandhi uses ${name} — ${summary.charAt(0).toLowerCase()}${summary.slice(1)}`
 		: `Where Akhil Gandhi has used ${name}.`;
+
+/**
+ * Structured data for Home (schema.org, read by Google): who this site is about.
+ * Only facts already public on the site. Email, location and employer are left out on purpose.
+ */
+export const personJsonLd = (base: string, sameAs: string[], certs: { name: string; url: string }[]) => {
+	const site = `${SITE_ORIGIN}${base}/`;
+	return {
+		'@context': 'https://schema.org',
+		'@graph': [
+			{
+				'@type': 'WebSite',
+				'@id': `${site}#website`,
+				url: site,
+				name: SITE_NAME,
+				about: { '@id': `${site}#person` }
+			},
+			{
+				'@type': 'Person',
+				'@id': `${site}#person`,
+				name: 'Akhil Gandhi',
+				jobTitle: 'Site Reliability Engineer',
+				description: DESCRIPTIONS.home,
+				url: site,
+				image: `${site}images/profile1.jpeg`,
+				sameAs,
+				alumniOf: [
+					{ '@type': 'CollegeOrUniversity', name: 'University of Colorado Boulder' },
+					{ '@type': 'CollegeOrUniversity', name: 'Pune Institute of Computer Technology' }
+				],
+				knowsAbout: [
+					'Site Reliability Engineering',
+					'Kubernetes',
+					'Amazon EKS',
+					'AWS',
+					'Terraform',
+					'ArgoCD',
+					'Istio',
+					'Observability',
+					'Incident response',
+					'Python'
+				],
+				hasCredential: certs.map((c) => ({
+					'@type': 'EducationalOccupationalCredential',
+					credentialCategory: 'certification',
+					name: c.name,
+					url: c.url
+				}))
+			}
+		]
+	};
+};
+
+/** The JSON-LD as a <script> tag, with "<" escaped so text can never close the tag early. */
+export const jsonLdScript = (data: unknown) =>
+	`<script type="application/ld+json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;

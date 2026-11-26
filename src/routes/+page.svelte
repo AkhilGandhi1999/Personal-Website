@@ -1,6 +1,8 @@
 <script lang="ts">
 	import TabTitle from '$lib/components/TabTitle.svelte';
-	import { DESCRIPTIONS } from '$lib/seo';
+	import { base } from '$app/paths';
+	import { CERTIFICATIONS } from '$lib/expertise';
+	import { DESCRIPTIONS, jsonLdScript, personJsonLd } from '$lib/seo';
 	import Carrousel from '$lib/components/Carrousel/Carrousel.svelte';
 	import Icon from '$lib/components/Icon/Icon.svelte';
 	import MainTitle from '$lib/components/MainTitle/MainTitle.svelte';
@@ -27,6 +29,17 @@
 		email: 'Email'
 	};
 </script>
+
+<svelte:head>
+	<!-- Structured data: tells search engines who this site is about. -->
+	{@html jsonLdScript(
+		personJsonLd(
+			base,
+			links.filter((l) => l.link.startsWith('http')).map((l) => l.link),
+			CERTIFICATIONS.map((c) => ({ name: c.name, url: c.url }))
+		)
+	)}
+</svelte:head>
 
 <TabTitle
 	{title}
