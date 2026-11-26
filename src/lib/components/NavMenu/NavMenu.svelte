@@ -15,6 +15,17 @@
 		}
 	}
 
+	// Path inside the site, without the /Personal-Website base: "/", "/experience", "/skills/aws".
+	const toRoute = (path: string) => {
+		const inSite = path.startsWith(base) ? path.slice(base.length) || '/' : path;
+		return inSite.length > 1 ? inSite.replace(/\/$/, '') : inSite;
+	};
+	$: route = toRoute(currentRoute);
+	// Shown next to the name like a shell prompt: "~" on Home, "~/experience" elsewhere.
+	$: shellPath = route === '/' ? '~' : `~${route}`;
+	// A nav item is current on its own page and its sub-pages (Expertise covers /skills/<tool>).
+	const isCurrent = (to: string, r: string) => r === to || r.startsWith(`${to}/`);
+
 	const items = [
 		{ title: NavBar.skills, to: '/skills', icon: Icons.Skills },
 		{ title: NavBar.personal, to: '/projects', icon: Icons.Projects },
@@ -33,11 +44,22 @@
 				><span class="nav-prompt-gt">&gt;</span><span class="nav-prompt-us">_</span></span
 			>
 			<span class="ml-2 text-md font-bold hidden md:inline">{HOME.name} {HOME.lastName}</span>
+			<span class="nav-path hidden md:inline" aria-hidden="true">{shellPath}</span>
 		</a>
 		<div class="flex flex-row flex-1 self-center justify-center">
 			{#each items as item}
-				<a href={`${base}${item.to}`} class="nav-menu-item !text-[var(--secondary-text)]">
-					<Icon icon={item.icon} color="var(--secondary-text)" size="18px" />
+				{@const current = isCurrent(item.to, route)}
+				<a
+					href={`${base}${item.to}`}
+					class="nav-menu-item"
+					class:nav-menu-item-current={current}
+					aria-current={current ? 'page' : undefined}
+				>
+					<Icon
+						icon={item.icon}
+						color={current ? 'var(--accent-blue)' : 'var(--secondary-text)'}
+						size="18px"
+					/>
 					<span class="nav-menu-item-label ">{item.title}</span>
 				</a>
 			{/each}
@@ -45,6 +67,8 @@
 		<div class="flex flex-row self-stretch items-stretch gap-1">
 			<button
 				class="hover:bg-[color:var(--main-hover)] text-[var(--secondary-text)] px-2"
+				aria-label="Switch between light and dark mode"
+				title="Switch between light and dark mode"
 				on:click={() => toggleTheme()}
 			>
 				{#if $theme}
@@ -98,7 +122,7 @@
 			text-decoration: none;
 			font-weight: 400;
 			padding: 10px 20px;
-			color: inherit;
+			color: var(--secondary-text);
 			display: flex;
 			align-items: center;
 			border-bottom: 3px solid transparent;
@@ -116,7 +140,23 @@
 			&:hover {
 				background-color: var(--main-hover);
 			}
+
+			/* Current page: blue label and a blue-to-green underline. */
+			&-current {
+				color: var(--accent-blue);
+				font-weight: 500;
+				border-image: linear-gradient(90deg, var(--accent-blue), var(--accent-green)) 1;
+			}
 		}
+	}
+
+	/* "~/experience" after the name, like a shell prompt. */
+	.nav-path {
+		margin-left: 8px;
+		font-family: var(--mono-f);
+		font-size: 0.9em;
+		color: var(--accent-text);
+		letter-spacing: 0;
 	}
 	/* ">_" mark, matching the favicon. */
 	.nav-prompt {
