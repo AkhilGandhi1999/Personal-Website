@@ -214,6 +214,7 @@
 
 		&:hover {
 			background-color: var(--main-hover);
+			border-color: var(--accent-blue);
 		}
 	}
 
@@ -230,7 +231,7 @@
 
 		& summary {
 			cursor: pointer;
-			color: var(--secondary-text);
+			color: var(--accent-blue);
 			font-weight: 500;
 		}
 
@@ -377,13 +378,13 @@
 		font-weight: 600;
 		padding: 2px 9px;
 		border-radius: 999px;
-		background: #1f6f43;
+		background: var(--gh-badge);
 		color: #ffffff;
 		text-decoration: none;
 		letter-spacing: 0.5px;
 
 		&:hover {
-			background: #258553;
+			background: var(--gh-badge-hover);
 		}
 	}
 

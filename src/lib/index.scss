@@ -58,6 +58,9 @@
 	--gh-blue: #58a6ff;
 	--gh-green: #3fb950;
 	--gh-bg-60: rgba(13, 17, 23, 0.6);
+	/* GitHub's button green: solid badges with white text (readable in both modes). */
+	--gh-badge: #238636;
+	--gh-badge-hover: #2ea043;
 
 	/* Light-mode accents (GitHub Light), used until the full light theme in C6. */
 	--ghl-blue: #0969da;

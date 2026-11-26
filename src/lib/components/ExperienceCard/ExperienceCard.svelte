@@ -103,6 +103,13 @@
 			margin-bottom: 5px;
 		}
 
+		/* Dates in the terminal font. */
+		&-period {
+			font-family: var(--mono-f);
+			font-size: 0.85em;
+			letter-spacing: 0;
+		}
+
 		&-location {
 			margin-bottom: 15px;
 		}
@@ -116,6 +123,10 @@
 			gap: 8px;
 			line-height: 1.55;
 			max-width: 95ch;
+		}
+
+		&-bullets li::marker {
+			color: var(--accent-green);
 		}
 
 		&-bullets li {

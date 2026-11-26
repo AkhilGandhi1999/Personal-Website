@@ -103,6 +103,8 @@
 			justify-content: space-between;
 			font-size: 0.75em;
 			font-weight: 400;
+			font-family: var(--mono-f);
+			letter-spacing: 0;
 		}
 
 		&-type {
@@ -123,6 +125,10 @@
 
 			& li {
 				transition: opacity 0.2s;
+			}
+
+			& li::marker {
+				color: var(--accent-green);
 			}
 
 			& li.dim {

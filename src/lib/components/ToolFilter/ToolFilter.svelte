@@ -31,7 +31,7 @@
 <div class="tool-filter" role="group" aria-label="Highlight work by tool">
 	<p class="tool-filter-lead">
 		{#if selectedName}
-			Showing where I used <strong>{selectedName}</strong>
+			Showing where I used <strong class="tool-filter-name">{selectedName}</strong>
 			({matching}
 			{noun}{matching === 1 ? '' : 's'}).
 			<button class="tool-filter-clear" on:click={() => pick(selected ?? '')}>Clear</button>
@@ -62,6 +62,10 @@
 		color: var(--tertiary-text);
 		font-weight: 300;
 		margin-bottom: 10px;
+	}
+
+	.tool-filter-name {
+		color: var(--accent-green);
 	}
 
 	.tool-filter-clear {
@@ -101,14 +105,22 @@
 			background-color: var(--main-hover);
 		}
 
+		&:hover {
+			border-color: var(--accent-blue);
+		}
+
+		/* Picked tool: green, like a passing check. */
 		&.active {
-			border-color: var(--accent-text);
-			color: var(--main-text);
-			background-color: var(--main-hover);
+			border-color: var(--accent-green);
+			color: var(--accent-green);
+			background-color: color-mix(in srgb, var(--accent-green) 12%, transparent);
+			font-weight: 500;
 		}
 	}
 
 	.tool-count {
+		font-family: var(--mono-f);
+		letter-spacing: 0;
 		font-size: 0.8em;
 		color: var(--tertiary-text);
 	}

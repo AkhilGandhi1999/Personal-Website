@@ -228,7 +228,7 @@
 		display: flex;
 		align-items: center;
 		gap: 14px;
-		border: 1px solid #1f6f43;
+		border: 1px solid var(--gh-badge);
 		border-radius: 12px;
 		padding: 12px 16px;
 		color: var(--main-text);
@@ -251,7 +251,7 @@
 		width: 32px;
 		height: 32px;
 		border-radius: 50%;
-		background: #1f6f43;
+		background: var(--gh-badge);
 		color: #ffffff;
 		font-weight: 700;
 		flex-shrink: 0;

@@ -15,12 +15,10 @@
 	<div class="resume">
 		{#if item}
 			<div class="resume-actions">
-				<a href={resumeUrl} target="_blank" rel="noreferrer">
-					<Chip label="View PDF" size={'1.1em'} />
-				</a>
-				<a href={resumeUrl} download>
-					<Chip label="Download" size={'1.1em'} />
-				</a>
+				<a class="resume-btn resume-btn-primary" href={resumeUrl} target="_blank" rel="noreferrer"
+					>View PDF ↗</a
+				>
+				<a class="resume-btn" href={resumeUrl} download>Download</a>
 			</div>
 
 			<!-- Browser's built-in PDF viewer. Hidden on phones, where the buttons work better. -->
@@ -43,10 +41,29 @@
 		&-actions {
 			display: flex;
 			gap: 10px;
+		}
 
-			& > a {
-				color: inherit;
-				text-decoration: none;
+		/* Same style as the "View résumé" button on Home. */
+		&-btn {
+			font-size: 1em;
+			color: var(--secondary-text);
+			border: 1px solid var(--border);
+			border-radius: 8px;
+			padding: 7px 18px;
+			text-decoration: none;
+
+			&:hover {
+				border-color: var(--accent-blue);
+				color: var(--accent-blue);
+			}
+
+			&-primary {
+				color: var(--accent-blue);
+				border-color: color-mix(in srgb, var(--accent-blue) 60%, transparent);
+
+				&:hover {
+					background-color: color-mix(in srgb, var(--accent-blue) 10%, transparent);
+				}
 			}
 		}
 
