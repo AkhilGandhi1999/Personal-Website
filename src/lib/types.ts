@@ -98,6 +98,12 @@ export interface HomePageParams extends PageParams {
 	name: string;
 	lastName: string;
 	description: string;
+	/** Main role (shown first, and read by screen readers and search engines). */
+	role: string;
+	/** Phrases the Home page types out in turn after the role. From the résumé. */
+	roles: Array<string>;
+	/** Status pills under the description. Facts from the résumé only. */
+	pills: Array<{ label: string; kind: 'status' | 'cert' }>;
 	links: Array<HomeLink>;
 	skills?: Array<Skill>;
 }

@@ -40,13 +40,27 @@ export const HOME: HomePageParams = {
 	title: 'Home',
 	name: 'Akhil',
 	lastName: 'Gandhi',
-	// Compact version of the summary in Akhil_Gandhi_Resume_Immigration.docx.
+	// One-sentence version of the résumé summary (the certifications are in the pills below).
 	description:
-		'Site Reliability Engineer running production Kubernetes (EKS) with GitOps delivery, observability, and 24/7 incident response, and building the automation behind it in Python and Terraform. CKA, Terraform, and Google Cloud certified, and an early adopter of agentic AI in day-to-day operations.',
+		'Production Kubernetes (EKS) with GitOps delivery, observability, and 24/7 incident response, plus the automation behind it in Python and Terraform.',
+	role: 'site reliability engineer',
+	// Typed in turn under the name (each backed by a résumé bullet).
+	roles: [
+		'site reliability engineer',
+		'kubernetes (eks) operator',
+		'gitops + argocd releases',
+		'p0/p1 incident lead',
+		'terraform + python automation'
+	],
+	// From the résumé: 99.99% target and P0/P1 + MTTR are Charter bullets; certs are on Credly.
+	pills: [
+		{ label: '99.99% availability target', kind: 'status' },
+		{ label: 'P0/P1 incident lead · 24/7 on-call', kind: 'status' },
+		{ label: 'MTTR −30%', kind: 'status' },
+		{ label: 'CKA · Terraform · GCP · AWS', kind: 'cert' }
+	],
 	links: [
-		{	platform: Platform.GitHub, 
-			link: 'https://github.com/AkhilGandhi1999' 
-		},
+		{ platform: Platform.GitHub, link: 'https://github.com/AkhilGandhi1999' },
 		{
 			platform: Platform.Linkedin,
 			link: 'https://www.linkedin.com/in/ak-gandhi/'

@@ -264,6 +264,7 @@
 	}
 
 	.skill-section-title {
+		color: var(--accent-green);
 		font-size: 1.2em;
 		font-weight: 600;
 	}

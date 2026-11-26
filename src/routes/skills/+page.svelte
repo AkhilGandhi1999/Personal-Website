@@ -263,6 +263,7 @@
 	}
 
 	.section-title {
+		color: var(--accent-green);
 		font-size: 1.5em;
 		font-weight: 600;
 	}

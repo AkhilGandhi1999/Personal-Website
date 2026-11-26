@@ -29,7 +29,9 @@
 			href={`${base}/`}
 			class="nav-menu-left flex flex-row items-center cursor-pointer px-4 text-[var(--secondary-text)] self-stretch hover:bg-[color:var(--main-hover)]"
 		>
-			<Icon icon={Icons.Code} size="30" color="var(--secondary-text)" />
+			<span class="nav-prompt" aria-hidden="true"
+				><span class="nav-prompt-gt">&gt;</span><span class="nav-prompt-us">_</span></span
+			>
 			<span class="ml-2 text-md font-bold hidden md:inline">{HOME.name} {HOME.lastName}</span>
 		</a>
 		<div class="flex flex-row flex-1 self-center justify-center">
@@ -115,5 +117,18 @@
 				background-color: var(--main-hover);
 			}
 		}
+	}
+	/* ">_" mark, matching the favicon. */
+	.nav-prompt {
+		font-family: var(--mono-f);
+		font-weight: 500;
+		font-size: 1.35em;
+		line-height: 1;
+	}
+	.nav-prompt-gt {
+		color: var(--accent-blue);
+	}
+	.nav-prompt-us {
+		color: var(--accent-green);
 	}
 </style>

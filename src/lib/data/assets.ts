@@ -17,6 +17,7 @@ const Assets = {
 	Grafana: a('grafana.svg'),
 	Splunk: a('splunk.svg'),
 	GitHubActions: a('githubactions.svg'),
+	// HashiCorp Packer mark (Simple Icons, CC0) in Packer blue.
 	Packer: a('packer.svg'),
 	Bash: a('bash.svg'),
 	Profile1: a('profile1.jpeg'),
@@ -50,10 +51,12 @@ const Assets = {
 	Pinterest: a('pinterest.svg'),
 	Nice: a('nice.png'),
 	Datadog: a('datadog.png'),
-	GCP: a('gcloud.jpeg'),
+	// Official Google Cloud icon (Devicon, MIT).
+	GCP: a('gcp.svg'),
 	MySQL: a('mysql.png'),
 	Linux: a('linux.png'),
-	Ansible: a('ansible.jpeg'),
+	// Ansible mark (Devicon, MIT) in Ansible red so it shows on the dark theme.
+	Ansible: a('ansible.svg'),
 };
 
 export default Assets;

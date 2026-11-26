@@ -11,7 +11,8 @@
 		letter-spacing: 4px;
 		text-align: center;
 
-		background: linear-gradient(var(--main-text), var(--accent-text-hover));
+		/* Blue-to-green title gradient (theme accents). */
+		background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
 		-webkit-background-clip: text;
 		background-clip: text;
 		-webkit-text-fill-color: transparent;
